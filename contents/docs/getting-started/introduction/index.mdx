@@ -18,25 +18,10 @@ positions, details, skill combinations, ratings, relationships, counter informat
   If you encounter any bugs, incompatible URLs, or have feature requests or other inquiries, please submit a pull request on my GitHub by clicking the GitHub link in the navbar.
 </Note>
 
-To begin using the Documentation, use this code for getting all available endpoints or move to Example Usage for getting started.
+To begin using the Documentation, use this API base as your starting point.
 
-```python {7} showLineNumbers
-import requests
-import json
-
-def fetch_api(api_url):
-    try:
-        response = requests.get(api_url)
-        response.raise_for_status()
-        return response.json()
-    except requests.exceptions.RequestException as e:
-        print(f"Error: {e}")
-        return None
-
-api_url = "https://api-mobilelegends.vercel.app/api"
-data = fetch_api(api_url)
-
-print(json.dumps(data, indent=4) if data else "No data fetched.")
+```url
+https://api-mobilelegends.vercel.app/api
 ```
 
 ## Conclusion
