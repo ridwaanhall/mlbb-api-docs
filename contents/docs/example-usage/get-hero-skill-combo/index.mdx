@@ -1,0 +1,227 @@
+---
+title: GET Hero Skill Combo
+description: This endpoint is used to display skill combinations of a specific hero identified by hero_id.
+---
+
+## Endpoint
+
+```txt
+GET /api/hero-skill-combo/<int:hero_id>/
+```
+
+## Path Parameters
+
+1. **hero_id**
+   The ID of the hero whose skill combinations are to be fetched.
+
+   - **Possible Values:** From `1` to `127`
+   - **Type:** integer
+   - **Required:** `True`
+
+## Example Requests
+
+```txt
+GET /api/hero-skill-combo/127/
+```
+
+## Example Usage
+
+```python {7} showLineNumbers
+import requests
+import json
+
+def fetch_api(api_url):
+    try:
+        response = requests.get(api_url)
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"Error: {e}")
+        return None
+
+api_url = "https://api-mobilelegends.vercel.app/api/hero-skill-combo/127"
+data = fetch_api(api_url)
+
+print(json.dumps(data, indent=4) if data else "No data fetched.")
+```
+
+## Result
+
+```json {15} showLineNumbers
+{
+    "code": 0,
+    "message": "OK",
+    "data": {
+        "records": [
+            {
+                "_id": "6763bde70a4e11b02c756c03",
+                "caption": "\u5362\u5361\u65af",
+                "configId": 144237,
+                "createdAt": 1734589927729,
+                "createdUser": "v_wjzhou",
+                "data": {
+                    "_object": 2684183,
+                    "desc": "Lukas should use his 2nd Skill to close in on the enemy, then use the enhanced Basic Attack plus another Basic Attack to get 2 stacks of Vigor. Now use his fully powered 1st Skill to inflict high damage and stun and displace the target, then back off to avoid the enemy's counterattack.",
+                    "hero_id": 127,
+                    "skill_id": [
+                        {
+                            "_createdAt": 1730960697288,
+                            "_id": "672c5d399d856a6db37d95ff",
+                            "_updatedAt": 1734598497731,
+                            "data": {
+                                "skillicon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_42/100_4c18e5cd1756493f078cbc1ccceefe99.png",
+                                "skillid": 12720
+                            },
+                            "id": 110351,
+                            "sourceId": 2674712
+                        },
+                        {
+                            "_createdAt": 1730960697288,
+                            "_id": "672c5d399d856a6db37d95fd",
+                            "_updatedAt": 1730960697288,
+                            "data": {
+                                "skillicon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_92/100_f98d2e98eaebfb31c6c5101cf1c3201a.png",
+                                "skillid": 12700
+                            },
+                            "id": 110349,
+                            "sourceId": 2674712
+                        },
+                        {
+                            "_createdAt": 1730960697288,
+                            "_id": "672c5d399d856a6db37d95fd",
+                            "_updatedAt": 1730960697288,
+                            "data": {
+                                "skillicon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_92/100_f98d2e98eaebfb31c6c5101cf1c3201a.png",
+                                "skillid": 12700
+                            },
+                            "id": 110349,
+                            "sourceId": 2674712
+                        },
+                        {
+                            "_createdAt": 1730960697288,
+                            "_id": "672c5d399d856a6db37d95fc",
+                            "_updatedAt": 1734598497731,
+                            "data": {
+                                "skillicon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_42/100_2a67de9ff7e731d6a5e6c6746b9971af.png",
+                                "skillid": 12710
+                            },
+                            "id": 110348,
+                            "sourceId": 2674712
+                        },
+                        {
+                            "_createdAt": 1730960697288,
+                            "_id": "672c5d399d856a6db37d95fd",
+                            "_updatedAt": 1730960697288,
+                            "data": {
+                                "skillicon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_92/100_f98d2e98eaebfb31c6c5101cf1c3201a.png",
+                                "skillid": 12700
+                            },
+                            "id": 110349,
+                            "sourceId": 2674712
+                        }
+                    ],
+                    "title": "LANING COMBOS"
+                },
+                "dynamic": null,
+                "id": 2821087,
+                "linkId": [
+                    2684183
+                ],
+                "sort": 0,
+                "updatedAt": 1734589927729,
+                "updatedUser": "v_wjzhou"
+            },
+            {
+                "_id": "6763bd580a4e11b02c756bf7",
+                "caption": "\u5362\u5361\u65af",
+                "configId": 144237,
+                "createdAt": 1734589784996,
+                "createdUser": "v_wjzhou",
+                "data": {
+                    "_object": 2684183,
+                    "desc": "In Sacred Beast form, use Lukas's 2nd Skill followed by an enhanced Basic Attack, then another Basic Attack to get 2 stacks of Vigor. Use his 1st Skill to inflict high damage and CC, and finish off with Shockwave Blast to devastate the enemy with a massive AOE attack.",
+                    "hero_id": 127,
+                    "skill_id": [
+                        {
+                            "_createdAt": 1730960697288,
+                            "_id": "672c5d399d856a6db37d9600",
+                            "_updatedAt": 1734598497731,
+                            "data": {
+                                "skillicon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_42/100_0ee62afc61544c6664234deab5577fc7.png",
+                                "skillid": 12730
+                            },
+                            "id": 110352,
+                            "sourceId": 2674712
+                        },
+                        {
+                            "_createdAt": 1730960697288,
+                            "_id": "672c5d399d856a6db37d95ff",
+                            "_updatedAt": 1734598497731,
+                            "data": {
+                                "skillicon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_42/100_4c18e5cd1756493f078cbc1ccceefe99.png",
+                                "skillid": 12720
+                            },
+                            "id": 110351,
+                            "sourceId": 2674712
+                        },
+                        {
+                            "_createdAt": 1730960697288,
+                            "_id": "672c5d399d856a6db37d95fd",
+                            "_updatedAt": 1730960697288,
+                            "data": {
+                                "skillicon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_92/100_f98d2e98eaebfb31c6c5101cf1c3201a.png",
+                                "skillid": 12700
+                            },
+                            "id": 110349,
+                            "sourceId": 2674712
+                        },
+                        {
+                            "_createdAt": 1730960697288,
+                            "_id": "672c5d399d856a6db37d95fd",
+                            "_updatedAt": 1730960697288,
+                            "data": {
+                                "skillicon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_92/100_f98d2e98eaebfb31c6c5101cf1c3201a.png",
+                                "skillid": 12700
+                            },
+                            "id": 110349,
+                            "sourceId": 2674712
+                        },
+                        {
+                            "_createdAt": 1730960697288,
+                            "_id": "672c5d399d856a6db37d95fc",
+                            "_updatedAt": 1734598497731,
+                            "data": {
+                                "skillicon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_42/100_2a67de9ff7e731d6a5e6c6746b9971af.png",
+                                "skillid": 12710
+                            },
+                            "id": 110348,
+                            "sourceId": 2674712
+                        },
+                        {
+                            "_createdAt": 1730960697288,
+                            "_id": "672c5d399d856a6db37d9601",
+                            "_updatedAt": 1734598497731,
+                            "data": {
+                                "skillicon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_42/100_c751fb684db1294450cb37cb333ca558.png",
+                                "skillid": 12734
+                            },
+                            "id": 110353,
+                            "sourceId": 2674712
+                        }
+                    ],
+                    "title": "TEAMFIGHT COMBOS"
+                },
+                "dynamic": null,
+                "id": 2821086,
+                "linkId": [
+                    2684183
+                ],
+                "sort": 0,
+                "updatedAt": 1734598203299,
+                "updatedUser": "rubickguo"
+            }
+        ],
+        "total": 2
+    }
+}
+```
