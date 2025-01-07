@@ -1,6 +1,6 @@
 ---
 title: GET Hero Compatibility
-description: The API endpoint requires a path parameter, main_heroid (an integer from 1 to 127), to fetch compatibility information for a specific hero. The successful JSON response includes a success code and message, and a data field containing a records array. This array holds an object that includes the main hero's name, win rate, appearance rate, and ban rate, along with two lists, sub_hero and sub_hero_last. The sub_hero list contains heroes that synergize well with the main hero, along with their win rates and how those rates change over different time segments, and includes each heroes appearance rate, and increase_win_rate The sub_hero_last list contains heroes that do not synergize well with the main hero, also with their win rates and fluctuations throughout the match. In essence, this endpoint provides data on heroes that are good teammates and those that are poor teammates with the specified main hero, along with metrics for the selected main hero.
+description: API endpoint uses main_heroid (1-127) to fetch hero compatibility data.
 ---
 
 ## Endpoint
