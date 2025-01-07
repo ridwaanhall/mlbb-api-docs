@@ -1,3 +1,3 @@
 # MLBB API Documentation
 
-![MLBB API Docs Interface](public/images.png)
+![MLBB API Docs Interface](public/image.png)
