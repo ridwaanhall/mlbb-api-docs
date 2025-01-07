@@ -1,0 +1,139 @@
+---
+title: GET Hero Counter
+description: This endpoint is used to display counter information of a specific hero identified by main_heroid.
+---
+
+## Endpoint
+
+```txt
+GET /api/hero-counter/<int:main_heroid>/
+```
+
+## Path Parameters
+
+1. **main_heroid**
+   The ID of the main hero whose counter information is to be fetched.
+
+   - **Possible Values:** From `1` to `127`
+   - **Type:** integer
+   - **Required:** `True`
+
+## Example Requests
+
+```txt
+GET /api/hero-counter/127/
+```
+
+## Example Usage
+
+```python {13} showLineNumbers
+import requests
+import json
+
+def fetch_api(api_url):
+    try:
+        response = requests.get(api_url)
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"Error: {e}")
+        return None
+
+api_url = "https://api-mobilelegends.vercel.app/api/hero-counter/127/"
+data = fetch_api(api_url)
+
+print(json.dumps(data, indent=4) if data else "No data fetched.")
+```
+
+## Result
+
+```json {16} showLineNumbers
+{
+    "code": 0,
+    "message": "OK",
+    "data": {
+        "records": [
+            {
+                "_createdAt": 1734873914521,
+                "_id": "6768133a0e9ff25810eb998d",
+                "_updatedAt": 1736183699005,
+                "data": {
+                    "bigrank": "7",
+                    "camp_type": "0",
+                    "main_hero": {
+                        "data": {
+                            "head": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_20/100_63040edd0cf15b815fcbbb8b2d08d7f7.png",
+                            "name": "Lukas"
+                        }
+                    },
+                    "main_hero_appearance_rate": 0.014474,
+                    "main_hero_ban_rate": 0.729511,
+                    "main_hero_channel": {
+                        "id": 2819992
+                    },
+                    "main_hero_win_rate": 0.511106,
+                    "main_heroid": 127,
+                    "match_type": "0",
+                    "sub_hero": [
+                        {
+                            "hero": {
+                                "data": {
+                                    "head": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_60956060c4cbb86f3c6343da05b70568.png"
+                                }
+                            },
+                            "hero_appearance_rate": 0.00813,
+                            "hero_channel": {
+                                "id": 2678751
+                            },
+                            "hero_index": 1,
+                            "hero_win_rate": 0.489088,
+                            "heroid": 15,
+                            "increase_win_rate": 0.030543,
+                            "min_win_rate10_12": 0.592089,
+                            "min_win_rate12_14": 0.562629,
+                            "min_win_rate14_16": 0.544007,
+                            "min_win_rate16_18": 0.538451,
+                            "min_win_rate18_20": 0.528009,
+                            "min_win_rate20": 0.518094,
+                            "min_win_rate6": 0.785714,
+                            "min_win_rate6_8": 0.612426,
+                            "min_win_rate8_10": 0.647817
+                        },
+                        ...
+                    ],
+                    "sub_hero_last": [
+                        {
+                            "hero": {
+                                "data": {
+                                    "head": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_06/100_af21c0dd8b5308c27974bff900803a9a.png"
+                                }
+                            },
+                            "hero_appearance_rate": 0.006306,
+                            "hero_channel": {
+                                "id": 2678842
+                            },
+                            "hero_index": 1,
+                            "hero_win_rate": 0.512295,
+                            "heroid": 106,
+                            "increase_win_rate": -0.036896,
+                            "min_win_rate10_12": 0.40034,
+                            "min_win_rate12_14": 0.438454,
+                            "min_win_rate14_16": 0.468271,
+                            "min_win_rate16_18": 0.50141,
+                            "min_win_rate18_20": 0.509163,
+                            "min_win_rate20": 0.508814,
+                            "min_win_rate6": 0.333333,
+                            "min_win_rate6_8": 0.403599,
+                            "min_win_rate8_10": 0.362374
+                        },
+                        ...
+                    ]
+                },
+                "id": 104700,
+                "sourceId": 2756569
+            }
+        ],
+        "total": 1
+    }
+}
+```
