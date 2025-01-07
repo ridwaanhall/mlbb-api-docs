@@ -1,0 +1,53 @@
+---
+title: GET Hero List
+description: Get hero list. it shows hero id and hero name.
+---
+
+## Endpoint
+
+```txt
+GET /api/hero-list/
+```
+
+## Example Requests
+
+```txt
+GET /api/hero-list/
+```
+
+> This request fetches hero list.
+
+## Example Usage
+
+```python {13} showLineNumbers
+import requests
+import json
+
+def fetch_api(api_url):
+    try:
+        response = requests.get(api_url)
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"Error: {e}")
+        return None
+
+api_url = "https://api-mobilelegends.vercel.app/api/hero-list/"
+data = fetch_api(api_url)
+
+print(json.dumps(data, indent=4) if data else "No data fetched.")
+```
+
+## Result
+
+```json showLineNumbers
+{
+    "127": "Lukas",
+    "126": "Suyou",
+    "125": "Zhuxin",
+    ...
+    "3": "Saber",
+    "2": "Balmond",
+    "1": "Miya"
+}
+```

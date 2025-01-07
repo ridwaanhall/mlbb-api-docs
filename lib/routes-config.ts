@@ -21,6 +21,7 @@ export const ROUTES: EachRoute[] = [
     href: "/example-usage",
     noLink: true,
     items: [
+      { title: "GET Hero List", href: "/get-hero-list" },
       { title: "GET Hero Rank", href: "/get-hero-rank" },
       { title: "GET Hero Position", href: "/get-hero-position" },
       { title: "GET Hero Detail", href: "/get-hero-detail" },
