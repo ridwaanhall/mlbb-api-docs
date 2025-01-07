@@ -1,0 +1,92 @@
+---
+title: GET Hero Relation
+description: This endpoint is used to display relationships of a specific hero identified by hero_id.
+---
+
+## Endpoint
+
+```txt
+GET /api/hero-relation/<int:hero_id>/
+```
+
+## Path Parameters
+
+1. **hero_id**
+   The ID of the hero whose relationships are to be fetched.
+
+   - **Possible Values:** From `1` to `127`
+   - **Type:** integer
+   - **Required:** `True`
+
+## Example Requests
+
+```txt
+GET /api/hero-relation/127/
+```
+
+## Example Usage
+
+```python {13} showLineNumbers
+import requests
+import json
+
+def fetch_api(api_url):
+    try:
+        response = requests.get(api_url)
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"Error: {e}")
+        return None
+
+api_url = "https://api-mobilelegends.vercel.app/api/hero-relation/127/"
+data = fetch_api(api_url)
+
+print(json.dumps(data, indent=4) if data else "No data fetched.")
+```
+
+## Result
+
+```json {10} showLineNumbers
+{
+    "code": 0,
+    "message": "OK",
+    "data": {
+        "records": [
+            {
+                "data": {
+                    "hero": {
+                        "data": {
+                            "name": "Lukas"
+                        }
+                    },
+                    "hero_id": 127,
+                    "relation": {
+                        "assist": {
+                            "target_hero_id": [
+                                93,
+                                6,
+                                41
+                            ]
+                        },
+                        "strong": {
+                            "target_hero_id": [
+                                60,
+                                121
+                            ]
+                        },
+                        "weak": {
+                            "target_hero_id": [
+                                17,
+                                57,
+                                116
+                            ]
+                        }
+                    }
+                }
+            }
+        ],
+        "total": 1
+    }
+}
+```
