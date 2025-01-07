@@ -1,0 +1,183 @@
+---
+title: GET Hero Position
+description: This endpoint is used to fetch hero positions based on various parameters such as role, lane, page size, and page index.
+---
+
+## Endpoint
+
+```txt
+GET /api/hero-position/
+```
+
+## Query Parameters
+
+1. **Role**  
+   Role category for filtering the data.
+
+   - **Possible Values:** `all`, `tank`, `fighter`, `ass`, `mage`, `mm`, `supp`
+   - **Default:** `all`
+
+2. **Lane**  
+   Lane category for filtering the data.
+
+   - **Possible Values:** `all`, `exp`, `mid`, `roam`, `jungle`, `gold`
+   - **Default:** `all`
+
+3. **Size**  
+   Number of records per page.
+
+   - **Possible Values:** From `1` to `127`
+   - **Default:** `21`
+
+4. **Index**  
+   Page index for pagination.
+
+   - **Possible Values:** From `1` to `127`
+   - **Default:** `1`
+
+## Example Requests
+
+```txt
+GET /api/hero-position/?role=mage&lane=mid&size=10&index=2
+```
+
+## Example Usage
+
+```python {7} showLineNumbers
+import requests
+import json
+
+def fetch_api(api_url):
+    try:
+        response = requests.get(api_url)
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"Error: {e}")
+        return None
+
+api_url = "https://api-mobilelegends.vercel.app/api/hero-position/?role=mage&lane=mid&size=10&index=2"
+data = fetch_api(api_url)
+
+print(json.dumps(data, indent=4) if data else "No data fetched.")
+```
+
+## Result
+
+```json {7} showLineNumbers
+{
+    "code": 0,
+    "message": "OK",
+    "data": {
+        "records": [
+            {
+                "data": {
+                    "hero": {
+                        "data": {
+                            "name": "Harith",
+                            "roadsort": [
+                                {
+                                    "_id": "66854225aa8e7f6ec4703d93",
+                                    "caption": "\u4e2d\u8def",
+                                    "configId": 144237,
+                                    "createdAt": 1720009253985,
+                                    "createdUser": "nickjin",
+                                    "data": {
+                                        "_object": 2732073,
+                                        "road_sort_icon": "https://akmweb.youngjoygame.com/web/gms/image/facab1eacb218d767b5acb80304bfafd.svg",
+                                        "road_sort_id": "2",
+                                        "road_sort_title": "Mid Lane"
+                                    },
+                                    "dynamic": null,
+                                    "id": 2732084,
+                                    "linkId": [
+                                        2732073
+                                    ],
+                                    "sort": 0,
+                                    "updatedAt": 1723022943932,
+                                    "updatedUser": "nickjin"
+                                },
+                                {
+                                    "_id": "668541a2aa8e7f6ec4703d86",
+                                    "caption": "\u91d1\u5e01\u8def",
+                                    "configId": 144237,
+                                    "createdAt": 1720009122589,
+                                    "createdUser": "nickjin",
+                                    "data": {
+                                        "_object": 2732073,
+                                        "road_sort_icon": "https://akmweb.youngjoygame.com/web/gms/image/91f817c656908a83c2e24eecb3b70986.svg",
+                                        "road_sort_id": "5",
+                                        "road_sort_title": "Gold Lane"
+                                    },
+                                    "dynamic": null,
+                                    "id": 2732079,
+                                    "linkId": [
+                                        2732073
+                                    ],
+                                    "sort": 0,
+                                    "updatedAt": 1723022953428,
+                                    "updatedUser": "nickjin"
+                                }
+                            ],
+                            "smallmap": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_0f81a3d82eb05c2c062fc6ea8b3d6578.png",
+                            "sortid": [
+                                {
+                                    "_id": "6698c015613093b976b4a974",
+                                    "caption": "4\u6cd5\u5e08",
+                                    "configId": 144237,
+                                    "createdAt": 1721286677393,
+                                    "createdUser": "nickjin",
+                                    "data": {
+                                        "_object": 2740651,
+                                        "sort_icon": "https://akmweb.youngjoygame.com/web/gms/image/1c6985dd0caec2028ccb6d1b8ca95e0f.png",
+                                        "sort_id": "4",
+                                        "sort_title": "mage"
+                                    },
+                                    "dynamic": null,
+                                    "id": 2740663,
+                                    "linkId": [
+                                        2740651
+                                    ],
+                                    "sort": 0,
+                                    "updatedAt": 1723023128824,
+                                    "updatedUser": "nickjin"
+                                },
+                                ""
+                            ]
+                        }
+                    },
+                    "hero_id": 73,
+                    "relation": {
+                        "assist": {
+                            "target_hero_id": [
+                                74,
+                                19,
+                                0
+                            ]
+                        },
+                        "strong": {
+                            "target_hero_id": [
+                                70,
+                                32,
+                                0,
+                                0
+                            ]
+                        },
+                        "weak": {
+                            "target_hero_id": [
+                                119,
+                                52,
+                                0,
+                                0
+                            ]
+                        }
+                    }
+                },
+                "id": 2678809
+            },
+            ...
+        ],
+        "total": 26
+    }
+}
+```
