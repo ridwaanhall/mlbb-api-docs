@@ -29,6 +29,7 @@ export const ROUTES: EachRoute[] = [
       { title: "GET Hero Rate", href: "/get-hero-rate" },
       { title: "GET Hero Relation", href: "/get-hero-relation" },
       { title: "GET Hero Counter", href: "/get-hero-counter" },
+      { title: "GET Hero Compatibility", href: "/get-hero-compatibility" },
     ],
   },
 ];
