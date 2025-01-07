@@ -23,6 +23,8 @@ export const ROUTES: EachRoute[] = [
     items: [
       { title: "GET Hero Rank", href: "/get-hero-rank" },
       { title: "GET Hero Position", href: "/get-hero-position" },
+      { title: "GET Hero Detail", href: "/get-hero-detail" },
+      { title: "GET Hero Detail Stats", href: "/get-hero-detail-stats" },
     ],
   },
 ];

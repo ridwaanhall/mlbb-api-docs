@@ -1,0 +1,408 @@
+---
+title: GET Hero Detail Stats
+description: This endpoint is used to display detailed statistics of a specific hero identified by main_heroid.
+---
+
+## Endpoint
+
+```txt
+GET /api/hero-detail-stats/<int:main_heroid>/
+```
+
+## Path Parameters
+
+1. **main_heroid**
+   The ID of the main hero whose detailed statistics are to be fetched.
+
+   - **Possible Values:** From `1` to `127`
+   - **Type:** integer
+   - **Required:** `True`
+
+## Example Requests
+
+```txt
+GET /api/hero-detail/127/
+```
+
+## Example Usage
+
+```python {7} showLineNumbers
+import requests
+import json
+
+def fetch_api(api_url):
+    try:
+        response = requests.get(api_url)
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"Error: {e}")
+        return None
+
+api_url = "https://api-mobilelegends.vercel.app/api/hero-detail/127"
+data = fetch_api(api_url)
+
+print(json.dumps(data, indent=4) if data else "No data fetched.")
+```
+
+## Result
+
+```json {7} showLineNumbers
+{
+    "code": 0,
+    "message": "OK",
+    "data": {
+        "records": [
+            {
+                "_id": "676285870a4e11b02c74e889",
+                "caption": "127\u5362\u5361\u65af",
+                "configId": 144237,
+                "createdAt": 1734509959964,
+                "createdUser": "rubickguo",
+                "data": {
+                    "_object": 2667538,
+                    "head": "https://akmweb.youngjoygame.com/web/gms/image/12a9a4f54f6f0e874a7ee51a84eda237.jpg",
+                    "head_big": "https://akmweb.youngjoygame.com/web/gms/image/95b6f94a0e37fd02e069223493540e75.jpg",
+                    "hero": {
+                        "_createdAt": 1726745697727,
+                        "_id": "66ec0c61328f1c9ef8397ca2",
+                        "_updatedAt": 1734601498886,
+                        "data": {
+                            "abilityshow": [
+                                "70",
+                                "50",
+                                "60",
+                                "30"
+                            ],
+                            "difficulty": "30",
+                            "head": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_20/100_63040edd0cf15b815fcbbb8b2d08d7f7.png",
+                            "heroid": 127,
+                            "heroskilllist": [
+                                {
+                                    "skilllist": [
+                                        {
+                                            "skillcd&cost": "",
+                                            "skilldesc": "Lukas gains 1 Resolve per second and an additional 2 Resolve when dealing damage to heroes.\n\nLukas consumes 10 Resolve per second while in [Sacred Beast] form.",
+                                            "skillicon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_42/100_eed80b0f3a9b855d178f5eb70c3542d9.png",
+                                            "skillid": 12740,
+                                            "skillname": "Hero's Resolve",
+                                            "skilltag": [
+                                                {
+                                                    "tagid": 62,
+                                                    "tagname": "Buff",
+                                                    "tagrgb": "79,156,184"
+                                                }
+                                            ],
+                                            "skillvideo": ""
+                                        },
+                                        {
+                                            "skillcd&cost": "CD: 5.5",
+                                            "skilldesc": "<font color=\"a6aafb\">Passive</font>: Lukas can enhance <font color=\"a6aafb\">Flash Combo</font> with his Basic Attacks up to 2 times, lasting 4s.\nLukas consumes all Vigor to unleash Pulverize, dealing 300<font color=\"fba51f\"> (+120% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>, plus additional attacks depending on the Vigor consumed (recovers HP equal to 8% of Max HP when hitting a hero):\n<font color=\"a6aafb\">1 Stack</font>: Lukas briefly stuns the target and spins his tonfa hammers to deal 100<font color=\"fba51f\"> (+50% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> 3 times, pulling the enemy toward him.\n<font color=\"a6aafb\">2 Stacks</font>: Lukas briefly stuns the target and follows up with 2 attacks that deal 50<font color=\"fba51f\"> (+20% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> per hit. He will then spin his tonfa hammers to deal 100<font color=\"fba51f\"> (+50% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> 3 times (cannot be interrupted).",
+                                            "skillicon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_42/100_2a67de9ff7e731d6a5e6c6746b9971af.png",
+                                            "skillid": 12710,
+                                            "skillname": "Flash Combo",
+                                            "skilltag": [
+                                                {
+                                                    "tagid": 33,
+                                                    "tagname": "Damage",
+                                                    "tagrgb": "199,121,85"
+                                                },
+                                                {
+                                                    "tagid": 21,
+                                                    "tagname": "CC",
+                                                    "tagrgb": "205,93,109"
+                                                }
+                                            ],
+                                            "skillvideo": ""
+                                        },
+                                        {
+                                            "skillcd&cost": "CD: 12",
+                                            "skilldesc": "<font color=\"a6aafb\">Passive</font>: Lukas can enhance <font color=\"a6aafb\">Flash Combo</font> with his Basic Attacks up to 4 times, lasting 60<font color=\"fba51f\"> (+125% Total Physical Attack)</font>s.\nLukas consumes all Vigor to unleash a tail swing, dealing 40<font color=\"fba51f\"> (+25% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>, plus additional attacks depending on the Vigor consumed. When hitting a hero, he also recovers  of his Max HP.\n<font color=\"a6aafb\">1 Stack</font>: Lukas briefly stuns the target and pounces to deal 20% <font color=\"fb1f1f\">Physical Damage</font> 3 times, knocking the enemy back.\n<font color=\"a6aafb\">2 Stacks</font>: Lukas briefly stuns the target and leaps to deal 4 <font color=\"fb1f1f\">Physical Damage</font> 2 times, then summons sacred lightning, dealing  <font color=\"fb1f1f\">Physical Damage</font> 3 times (cannot be interrupted).",
+                                            "skillicon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_42/100_4c18e5cd1756493f078cbc1ccceefe99.png",
+                                            "skillid": 12720,
+                                            "skillname": "Flash Step",
+                                            "skilltag": [
+                                                {
+                                                    "tagid": 81,
+                                                    "tagname": "Mobility",
+                                                    "tagrgb": "162,105,198"
+                                                },
+                                                {
+                                                    "tagid": 62,
+                                                    "tagname": "Buff",
+                                                    "tagrgb": "79,156,184"
+                                                }
+                                            ],
+                                            "skillvideo": ""
+                                        },
+                                        {
+                                            "skillcd&cost": "",
+                                            "skilldesc": "Lukas transforms into his <font color=\"a6aafb\">Sacred Beast</font> form. While in this state, his base Movement Speed is increased by 30, all attributes are increased by 15%, and his skills gain new effects.\n<font color=\"a6aafb\">Use Again</font>: Lukas in Sacred Beast form fires a Shockwave Blast in the target direction that will explode upon hitting an enemy hero or reaching its maximum range, dealing 300<font color=\"fba51f\"> (+100% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and causing 3 aftershocks that each deal 80<font color=\"fba51f\"> (+25% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>.\n<font color=\"A4AAC7\">\"All attributes\" include HP, Physical Attack, Attack Speed, Physical & Magic Defense and Attack Range.</font>",
+                                            "skillicon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_42/100_0ee62afc61544c6664234deab5577fc7.png",
+                                            "skillid": 12730,
+                                            "skillname": "Unleash the Beast",
+                                            "skilltag": [
+                                                {
+                                                    "tagid": 72,
+                                                    "tagname": "Morph",
+                                                    "tagrgb": "97,127,198"
+                                                },
+                                                {
+                                                    "tagid": 62,
+                                                    "tagname": "Buff",
+                                                    "tagrgb": "79,156,184"
+                                                }
+                                            ],
+                                            "skillvideo": ""
+                                        }
+                                    ],
+                                    "skilllistid": "1271"
+                                },
+                                {
+                                    "skilllist": [
+                                        {
+                                            "skillcd&cost": "",
+                                            "skilldesc": "Lukas gains 1 Resolve per second and an additional 2 Resolve when dealing damage to heroes.\n\nLukas consumes 10 Resolve per second while in [Sacred Beast] form.",
+                                            "skillicon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_42/100_eed80b0f3a9b855d178f5eb70c3542d9.png",
+                                            "skillid": 12740,
+                                            "skillname": "Hero's Resolve",
+                                            "skilltag": [
+                                                {
+                                                    "tagid": 62,
+                                                    "tagname": "Buff",
+                                                    "tagrgb": "79,156,184"
+                                                }
+                                            ],
+                                            "skillvideo": ""
+                                        },
+                                        {
+                                            "skillcd&cost": "CD: 5.5",
+                                            "skilldesc": "<font color=\"a6aafb\">Passive</font>: Lukas can enhance <font color=\"a6aafb\">Flash Combo</font> with his Basic Attacks up to 2 times, lasting 4s.\nLukas consumes all Vigor to unleash Pulverize, dealing 300<font color=\"fba51f\"> (+120% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>, plus additional attacks depending on the Vigor consumed (recovers HP equal to 8% of Max HP when hitting a hero):\n<font color=\"a6aafb\">1 Stack</font>: Lukas briefly stuns the target and spins his tonfa hammers to deal 100<font color=\"fba51f\"> (+50% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> 3 times, pulling the enemy toward him.\n<font color=\"a6aafb\">2 Stacks</font>: Lukas briefly stuns the target and follows up with 2 attacks that deal 50<font color=\"fba51f\"> (+20% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> per hit. He will then spin his tonfa hammers to deal 100<font color=\"fba51f\"> (+50% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> 3 times (cannot be interrupted).",
+                                            "skillicon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_42/100_31b3aadc6fbf508e4782bc8c36df3008.png",
+                                            "skillid": 2012710,
+                                            "skillname": "Flash Combo",
+                                            "skilltag": [
+                                                {
+                                                    "tagid": 33,
+                                                    "tagname": "Damage",
+                                                    "tagrgb": "199,121,85"
+                                                },
+                                                {
+                                                    "tagid": 21,
+                                                    "tagname": "CC",
+                                                    "tagrgb": "205,93,109"
+                                                }
+                                            ],
+                                            "skillvideo": ""
+                                        },
+                                        {
+                                            "skillcd&cost": "CD: 12",
+                                            "skilldesc": "<font color=\"a6aafb\">Passive</font>: Lukas can enhance <font color=\"a6aafb\">Flash Combo</font> with his Basic Attacks up to 4 times, lasting 60<font color=\"fba51f\"> (+125% Total Physical Attack)</font>s.\nLukas consumes all Vigor to unleash a tail swing, dealing 40<font color=\"fba51f\"> (+25% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>, plus additional attacks depending on the Vigor consumed. When hitting a hero, he also recovers  of his Max HP.\n<font color=\"a6aafb\">1 Stack</font>: Lukas briefly stuns the target and pounces to deal 20% <font color=\"fb1f1f\">Physical Damage</font> 3 times, knocking the enemy back.\n<font color=\"a6aafb\">2 Stacks</font>: Lukas briefly stuns the target and leaps to deal 4 <font color=\"fb1f1f\">Physical Damage</font> 2 times, then summons sacred lightning, dealing  <font color=\"fb1f1f\">Physical Damage</font> 3 times (cannot be interrupted).",
+                                            "skillicon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_42/100_c9cc9b1c2e6b95fcef9a4fb7e0c0523a.png",
+                                            "skillid": 2012720,
+                                            "skillname": "Flash Step",
+                                            "skilltag": [
+                                                {
+                                                    "tagid": 81,
+                                                    "tagname": "Mobility",
+                                                    "tagrgb": "162,105,198"
+                                                },
+                                                {
+                                                    "tagid": 62,
+                                                    "tagname": "Buff",
+                                                    "tagrgb": "79,156,184"
+                                                }
+                                            ],
+                                            "skillvideo": ""
+                                        },
+                                        {
+                                            "skillcd&cost": "CD: 0.1",
+                                            "skilldesc": "The Sacred Beast fires a Shockwave Blast in the target direction that will explode upon hitting an enemy hero or reaching its maximum range, dealing 300<font color=\"fba51f\"> (+100% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font> and causing 3 aftershocks that each deal 80<font color=\"fba51f\"> (+25% Total Physical Attack)</font> <font color=\"fb1f1f\">Physical Damage</font>.",
+                                            "skillicon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_42/100_c751fb684db1294450cb37cb333ca558.png",
+                                            "skillid": 12734,
+                                            "skillname": "Shockwave Blast",
+                                            "skilltag": [
+                                                {
+                                                    "tagid": 31,
+                                                    "tagname": "Burst",
+                                                    "tagrgb": "199,121,85"
+                                                }
+                                            ],
+                                            "skillvideo": ""
+                                        }
+                                    ],
+                                    "skilllistid": "1272"
+                                }
+                            ],
+                            "heroskin": null,
+                            "name": "Lukas",
+                            "painting": "",
+                            "recommendlevel": [
+                                "4",
+                                "1",
+                                "3",
+                                "2"
+                            ],
+                            "recommendlevellabel": "4-1-3-2",
+                            "recommendmasterplan": [],
+                            "roadsort": [
+                                {
+                                    "_id": "6685424caa8e7f6ec4703d97",
+                                    "caption": "\u7ecf\u9a8c\u8def",
+                                    "configId": 144237,
+                                    "createdAt": 1720009292257,
+                                    "createdUser": "nickjin",
+                                    "data": {
+                                        "_object": 2732073,
+                                        "road_sort_icon": "https://akmweb.youngjoygame.com/web/gms/image/6a246099f7eb83a8856306d8b4c84fc2.svg",
+                                        "road_sort_id": "1",
+                                        "road_sort_title": "Exp Lane"
+                                    },
+                                    "dynamic": null,
+                                    "id": 2732085,
+                                    "linkId": [
+                                        2732073
+                                    ],
+                                    "sort": 0,
+                                    "updatedAt": 1723022932111,
+                                    "updatedUser": "nickjin"
+                                },
+                                ""
+                            ],
+                            "roadsorticon1": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_9a93311ae387f9ffe5a7efa5e341eb9e.png",
+                            "roadsorticon2": "",
+                            "roadsortlabel": [
+                                "Exp Lane",
+                                ""
+                            ],
+                            "smallmap": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_20/100_454c13b2de7b7d1a20fbf553c620510d.png",
+                            "sorticon1": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_1660a04f7dc87095c97aaf32f44d685c.png",
+                            "sorticon2": "",
+                            "sortid": [
+                                {
+                                    "_id": "6698bfe8613093b976b4a96c",
+                                    "caption": "2\u6218\u58eb",
+                                    "configId": 144237,
+                                    "createdAt": 1721286632237,
+                                    "createdUser": "nickjin",
+                                    "data": {
+                                        "_object": 2740651,
+                                        "sort_icon": "https://akmweb.youngjoygame.com/web/gms/image/629e282165d4b63deceaf350426ea440.png",
+                                        "sort_id": "2",
+                                        "sort_title": "fighter"
+                                    },
+                                    "dynamic": null,
+                                    "id": 2740659,
+                                    "linkId": [
+                                        2740651
+                                    ],
+                                    "sort": 0,
+                                    "updatedAt": 1723023133206,
+                                    "updatedUser": "nickjin"
+                                },
+                                ""
+                            ],
+                            "sortlabel": [
+                                "Fighter",
+                                ""
+                            ],
+                            "speciality": [
+                                "Regen",
+                                "Damage"
+                            ],
+                            "squarehead": "",
+                            "squareheadbig": "",
+                            "story": "A legendary Sacred Beast that can take the form of a rambunctious young man.",
+                            "tale": ""
+                        },
+                        "id": 100753,
+                        "sourceId": 2756563
+                    },
+                    "hero_id": 127,
+                    "painting": "https://akmweb.youngjoygame.com/web/gms/image/f7f5ea66c4400526c54e5690e2476cd8.png",
+                    "relation": {
+                        "assist": {
+                            "desc": "Lukas's Sacred Beast form has extended attack range and enhanced mobility, which synergizes well with heroes possessing AOE CC, such as Atlas, Tigreal, and Gatotkaca.",
+                            "target_hero": [
+                                {
+                                    "data": {
+                                        "head": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_d974ac796678180ff8724b88e192898b.png"
+                                    }
+                                },
+                                {
+                                    "data": {
+                                        "head": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_8b30576754be1a4f8bebd09df8d6bec7.png"
+                                    }
+                                },
+                                {
+                                    "data": {
+                                        "head": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_96f9dbbc096e0f0a28f9b9e587d06a9c.png"
+                                    }
+                                }
+                            ],
+                            "target_hero_id": [
+                                93,
+                                6,
+                                41
+                            ]
+                        },
+                        "strong": {
+                            "desc": "Lukas excels in close-quarter combat and is a good counter to heroes with low mobility and CC, like Hanabi and Ixia.",
+                            "target_hero": [
+                                {
+                                    "data": {
+                                        "head": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_8a9c1966feb34e85d7bdcc1ed01ffb5d.png"
+                                    }
+                                },
+                                {
+                                    "data": {
+                                        "head": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_f070d82521ecd2e14d4ef3f25880830a.png"
+                                    }
+                                }
+                            ],
+                            "target_hero_id": [
+                                60,
+                                121
+                            ]
+                        },
+                        "weak": {
+                            "desc": "Lukas needs to stay close to enemies to deal damage, which makes him vulnerable to heroes with strong burst and CC, such as Fanny, Valir, and Julian.",
+                            "target_hero": [
+                                {
+                                    "data": {
+                                        "head": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_3391df36d6dcc54dd1c417098e15ec59.png"
+                                    }
+                                },
+                                {
+                                    "data": {
+                                        "head": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_bf16690876761b80822df90eb3320d69.png"
+                                    }
+                                },
+                                {
+                                    "data": {
+                                        "head": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_5511ddc0ad2789b525f32ef572b017eb.png"
+                                    }
+                                }
+                            ],
+                            "target_hero_id": [
+                                17,
+                                57,
+                                116
+                            ]
+                        }
+                    }
+                },
+                "dynamic": null,
+                "id": 2819992,
+                "linkId": [
+                    2667538
+                ],
+                "sort": 0,
+                "updatedAt": 1735632714017,
+                "updatedUser": "peelzzhu"
+            }
+        ],
+        "total": 1
+    }
+}
+```
