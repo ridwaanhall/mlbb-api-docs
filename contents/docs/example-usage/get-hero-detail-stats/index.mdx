@@ -1,6 +1,6 @@
 ---
 title: GET Hero Detail Stats
-description: This endpoint is used to display detailed statistics of a specific hero identified by main_heroid.
+description: The API endpoint requires a path parameter called main_heroid, an integer between 1 and 127, to fetch detailed statistics for a specific main hero. The successful JSON response contains a success code and message, and a data field with a records array holding an object that includes win rates, ban rates, and appearance rates for the main hero, as well as a list of "sub-heroes" who are often seen in matches with the main hero. For each sub-hero, the response includes their appearance rate, win rate, and how their win rates fluctuate across different match time segments, also included are sub heroes that have negative impact in the matches. In short, the response provides performance metrics of the main hero, as well as the heroes frequently played with them and how these pairings affect match outcomes at different time marks.
 ---
 
 ## Endpoint

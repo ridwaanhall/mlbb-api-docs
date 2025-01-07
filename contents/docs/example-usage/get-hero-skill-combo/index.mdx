@@ -1,6 +1,6 @@
 ---
 title: GET Hero Skill Combo
-description: This endpoint is used to display skill combinations of a specific hero identified by hero_id.
+description: The API endpoint uses a required path parameter, hero_id, an integer from 1 to 127, to retrieve skill combination strategies for a specific hero. The successful JSON response includes a success code and message, and a data field with a records array, where each object represents a skill combo guide for the specified hero, containing a description of the skill sequence and an array of skill_id objects that specify the skills involved in the combo along with their associated icons. Each combo also includes a title indicating its purpose, like "LANING COMBOS" or "TEAMFIGHT COMBOS". The API returns an array of these skill combination guides for a single hero.
 ---
 
 ## Endpoint

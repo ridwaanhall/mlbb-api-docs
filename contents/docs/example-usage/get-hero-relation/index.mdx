@@ -1,6 +1,6 @@
 ---
 title: GET Hero Relation
-description: This endpoint is used to display relationships of a specific hero identified by hero_id.
+description: The API endpoint utilizes a required path parameter, hero_id, an integer from 1 to 127, to retrieve relationship data for a specific hero. The successful JSON response includes a success code and message, and the data field containing a records array. This array holds an object with the main hero's name, its hero_id, and a relation object. The relation object categorizes the hero's relationships into assist, strong, and weak based on target_hero_id arrays. These arrays hold hero IDs that represent heroes that synergize well, heroes that the main hero is strong against, and heroes that the main hero is weak against, respectively.
 ---
 
 ## Endpoint

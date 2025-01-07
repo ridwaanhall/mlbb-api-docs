@@ -1,6 +1,6 @@
 ---
 title: GET Hero Counter
-description: This endpoint is used to display counter information of a specific hero identified by main_heroid.
+description: The API endpoint requires a path parameter, main_heroid (an integer from 1 to 127), to fetch counter information for a specific hero. The successful JSON response includes a success code and message and a data field containing a records array. This array holds an object that includes the main hero's name, win rate, appearance rate, and ban rate, along with two lists: sub_hero and sub_hero_last. The sub_hero list contains heroes that perform well against the main hero (counters), each with their win rates, and increase_win_rate, and how their win rate fluctuates throughout the match. The sub_hero_last list contains heroes that are weak against the main hero, each with their respective win rate and how their win rate fluctuates throughout the match. In short, this endpoint provides data on heroes that are effective counters and heroes that are ineffective against the specified main hero, as well as metrics for the selected main hero.
 ---
 
 ## Endpoint

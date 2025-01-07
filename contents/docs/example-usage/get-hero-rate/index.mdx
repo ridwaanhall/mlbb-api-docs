@@ -1,6 +1,6 @@
 ---
 title: GET Hero Rate
-description: This endpoint is used to rate a specific hero identified by main_heroid.
+description: This API endpoint uses a mandatory path parameter, main_heroid (an integer from 1 to 127), to fetch the rating data for a specific hero. It also accepts an optional query parameter past-days (with possible values of 7, 15, or 30, defaulting to 7) to determine the time range for the data. The successful JSON response contains a success code and message, along with a data field. This data field has a records array, holding objects that contain the hero's daily win rate, ban rate, and appearance rate over the specified number of past days. The response provides a time series of performance metrics, enabling analysis of the selected hero's performance over time.
 ---
 
 ## Endpoint
