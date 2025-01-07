@@ -1,0 +1,173 @@
+---
+title: GET Hero Rate
+description: This endpoint is used to rate a specific hero identified by main_heroid.
+---
+
+## Endpoint
+
+```txt
+GET /api/hero-rate/<int:main_heroid>/
+```
+
+## Path Parameters
+
+1. **main_heroid**
+   The ID of the main hero whose rating is to be fetched.
+
+   - **Possible Values:** From `1` to `127`
+   - **Type:** integer
+   - **Required:** `True`
+
+## Query Parameters
+
+1. **past-days**
+   Number of past days for which the data is to be fetched.
+
+   - **Possible Values:** `7`, `15`, `30`
+   - **Default:** `7`
+
+## Example Requests
+
+```txt
+GET /api/hero-rate/127/?past-days=15
+```
+
+## Example Usage
+
+```python {13} showLineNumbers
+import requests
+import json
+
+def fetch_api(api_url):
+    try:
+        response = requests.get(api_url)
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"Error: {e}")
+        return None
+
+api_url = "https://api-mobilelegends.vercel.app/api/hero-rate/127/?past-days=15"
+data = fetch_api(api_url)
+
+print(json.dumps(data, indent=4) if data else "No data fetched.")
+```
+
+## Result
+
+```json {13} showLineNumbers
+{
+    "code": 0,
+    "message": "OK",
+    "data": {
+        "records": [
+            {
+                "_createdAt": 1734871497985,
+                "_id": "676809ccdcc347d19052d958",
+                "_updatedAt": 1736176497794,
+                "data": {
+                    "bigrank": "8",
+                    "camp_type": "1",
+                    "main_heroid": 127,
+                    "match_type": "1",
+                    "win_rate": [
+                        {
+                            "app_rate": 0.015962,
+                            "ban_rate": 0.711136,
+                            "date": "2025-01-05",
+                            "win_rate": 0.509963
+                        },
+                        {
+                            "app_rate": 0.015909,
+                            "ban_rate": 0.708215,
+                            "date": "2025-01-04",
+                            "win_rate": 0.507771
+                        },
+                        {
+                            "app_rate": 0.016141,
+                            "ban_rate": 0.705743,
+                            "date": "2025-01-03",
+                            "win_rate": 0.505396
+                        },
+                        {
+                            "app_rate": 0.016358,
+                            "ban_rate": 0.70393,
+                            "date": "2025-01-02",
+                            "win_rate": 0.503587
+                        },
+                        {
+                            "app_rate": 0.016507,
+                            "ban_rate": 0.702413,
+                            "date": "2025-01-01",
+                            "win_rate": 0.502594
+                        },
+                        {
+                            "app_rate": 0.016586,
+                            "ban_rate": 0.700307,
+                            "date": "2024-12-31",
+                            "win_rate": 0.502302
+                        },
+                        {
+                            "app_rate": 0.016645,
+                            "ban_rate": 0.698405,
+                            "date": "2024-12-30",
+                            "win_rate": 0.500977
+                        },
+                        {
+                            "app_rate": 0.016696,
+                            "ban_rate": 0.69698,
+                            "date": "2024-12-29",
+                            "win_rate": 0.499965
+                        },
+                        {
+                            "app_rate": 0.016733,
+                            "ban_rate": 0.695479,
+                            "date": "2024-12-28",
+                            "win_rate": 0.499191
+                        },
+                        {
+                            "app_rate": 0.016759,
+                            "ban_rate": 0.694478,
+                            "date": "2024-12-27",
+                            "win_rate": 0.498738
+                        },
+                        {
+                            "app_rate": 0.016796,
+                            "ban_rate": 0.69368,
+                            "date": "2024-12-26",
+                            "win_rate": 0.498372
+                        },
+                        {
+                            "app_rate": 0.016821,
+                            "ban_rate": 0.693008,
+                            "date": "2024-12-25",
+                            "win_rate": 0.497988
+                        },
+                        {
+                            "app_rate": 0.016845,
+                            "ban_rate": 0.692645,
+                            "date": "2024-12-24",
+                            "win_rate": 0.498023
+                        },
+                        {
+                            "app_rate": 0.016864,
+                            "ban_rate": 0.69244,
+                            "date": "2024-12-23",
+                            "win_rate": 0.497939
+                        },
+                        {
+                            "app_rate": 0.016868,
+                            "ban_rate": 0.69243,
+                            "date": "2024-12-22",
+                            "win_rate": 0.497958
+                        }
+                    ]
+                },
+                "id": 123254,
+                "sourceId": 2687909
+            }
+        ],
+        "total": 1
+    }
+}
+```

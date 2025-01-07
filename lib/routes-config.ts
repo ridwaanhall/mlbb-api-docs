@@ -26,6 +26,7 @@ export const ROUTES: EachRoute[] = [
       { title: "GET Hero Detail", href: "/get-hero-detail" },
       { title: "GET Hero Detail Stats", href: "/get-hero-detail-stats" },
       { title: "GET Hero Skill Combo", href: "/get-hero-skill-combo" },
+      { title: "GET Hero Rate", href: "/get-hero-rate" },
     ],
   },
 ];
