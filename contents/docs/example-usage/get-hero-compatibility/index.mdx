@@ -26,24 +26,30 @@ GET /api/hero-compatibility/127/
 
 ## Example Usage
 
-```python {13} showLineNumbers
-import requests
-import json
+1. Python requests
 
-def fetch_api(api_url):
-    try:
-        response = requests.get(api_url)
-        response.raise_for_status()
-        return response.json()
-    except requests.exceptions.RequestException as e:
-        print(f"Error: {e}")
-        return None
+    ```python {13} showLineNumbers
+    import requests
+    import json
 
-api_url = "https://api-mobilelegends.vercel.app/api/hero-compatibility/127/"
-data = fetch_api(api_url)
+    def fetch_api(api_url):
+        try:
+            response = requests.get(api_url)
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"Error: {e}")
+            return None
 
-print(json.dumps(data, indent=4) if data else "No data fetched.")
-```
+    api_url = "https://api-mobilelegends.vercel.app/api/hero-compatibility/127/"
+    data = fetch_api(api_url)
+
+    print(json.dumps(data, indent=4) if data else "No data fetched.")
+    ```
+
+2. Direct API Access
+
+    Click this to [Access the API directly](https://api-mobilelegends.vercel.app/api/hero-compatibility/127/)
 
 ## Result
 
