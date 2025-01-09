@@ -12,7 +12,7 @@ export default function Home() {
         An API for Mobile Legends: Bang Bang
       </h1>
       <p className="mb-8 sm:text-md max-w-[800px] text-muted-foreground">
-        This API documentation, created by ridwaanhall, provides comprehensive data for Mobile Legends: Bang Bang, including statistics, hero information, and other relevant details. Example usage of this API documentation is provided in Python.
+        This API documentation, created by ridwaanhall, provides comprehensive data for Mobile Legends: Bang Bang, including statistics, hero information, and other relevant details. Example usage of this API documentation is provided in Python and Direct API Access.
       </p>
       <div>
         <Link
