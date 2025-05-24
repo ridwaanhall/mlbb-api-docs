@@ -49,7 +49,7 @@ export function Navbar() {
 function Logo() {
   return (
     <Link href="/" className="flex items-center gap-3">
-      <h2 className="text-md font-bold font-code">MLBB API</h2>
+      <h2 className="text-md font-bold font-code">MLBB API Stats</h2>
     </Link>
   );
 }

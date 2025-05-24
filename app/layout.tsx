@@ -19,9 +19,9 @@ const codeFont = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "MLBB API - ridwaanhall",
+  title: "MLBB API Stats - ridwaanhall",
   description:
-    "This comprehensive documentation template, crafted with Next.js and available as open-source, delivers a sleek and responsive design, tailored to meet all your MLBB API documentation requirements.",
+    "This comprehensive documentation template, crafted with Next.js and available as open-source, delivers a sleek and responsive design, tailored to meet all your MLBB API Stats documentation requirements.",
 };
 
 export default function RootLayout({
