@@ -72,7 +72,7 @@ GET /api/hero-rank/?days=7&rank=mythic&size=10&index=2&sort_field=pick_rate&sort
             print(f"Error: {e}")
             return None
 
-    api_url = "https://api-mobilelegends.vercel.app/api/hero-rank/?days=7&rank=mythic&size=10&index=2&sort_field=pick_rate&sort_order=asc"
+    api_url = "https://mlbb-stats.ridwaanhall.com/api/hero-rank/?days=7&rank=mythic&size=10&index=2&sort_field=pick_rate&sort_order=asc"
     data = fetch_api(api_url)
 
     print(json.dumps(data, indent=4) if data else "No data fetched.")
@@ -80,7 +80,7 @@ GET /api/hero-rank/?days=7&rank=mythic&size=10&index=2&sort_field=pick_rate&sort
 
 ### Direct API Access
 
-    Click this to [Access the API directly](https://api-mobilelegends.vercel.app/api/hero-rank/?days=7&rank=mythic&size=10&index=2&sort_field=pick_rate&sort_order=asc)
+    Click this to [Access the API directly](https://mlbb-stats.ridwaanhall.com/api/hero-rank/?days=7&rank=mythic&size=10&index=2&sort_field=pick_rate&sort_order=asc)
 
 ## Result
 
