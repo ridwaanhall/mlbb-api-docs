@@ -15,6 +15,7 @@ export const ROUTES: EachRoute[] = [
     items: [
       { title: "Introduction", href: "/introduction" },
       { title: "API Language", href: "/language" },
+      { title: "Sponsor Me", href: "/sponsor" },
     ],
   },
   {
