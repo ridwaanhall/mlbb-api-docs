@@ -1,0 +1,65 @@
+---
+title: GET MPLID Player Stats
+description: API endpoint to get player stats like total game, KDA, and more.
+---
+
+## Endpoint
+
+```txt
+GET /api/mplid/player-stats/
+```
+
+## Example Requests
+
+```txt
+GET /api/mplid/player-stats/
+```
+
+## Example Usage
+
+### Python requests
+
+    ```python {13} showLineNumbers
+    import requests
+    import json
+
+    def fetch_api(api_url):
+        try:
+            response = requests.get(api_url)
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"Error: {e}")
+            return None
+
+    api_url = "https://mlbb-stats.ridwaanhall.com/api/mplid/player-stats/"
+    data = fetch_api(api_url)
+
+    print(json.dumps(data, indent=4) if data else "No data fetched.")
+    ```
+
+### Direct API Access
+
+    Click this to [Access the API directly](https://mlbb-stats.ridwaanhall.com/api/mplid/player-stats/)
+
+## Result
+
+```json {3} showLineNumbers
+[
+    {
+        "player_name": "Nino",
+        "player_logo": "https://wsrv.nl/?url=https://ik.imagekit.io/nloe8dhf7w/mplid/s14/teams/ae-64.png",
+        "lane": "EXP",
+        "total_games": 40,
+        "total_kills": 63,
+        "avg_kills": 1.57,
+        "total_deaths": 110,
+        "avg_deaths": 2.75,
+        "total_assists": 307,
+        "avg_assists": 7.67,
+        "avg_kda": 3.36,
+        "kill_participation": "67%"
+    },
+    ...
+]
+```

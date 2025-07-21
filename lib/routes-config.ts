@@ -23,16 +23,40 @@ export const ROUTES: EachRoute[] = [
     href: "/example-usage",
     noLink: true,
     items: [
-      { title: "GET Hero List", href: "/get-hero-list" },
-      { title: "GET Hero Rank", href: "/get-hero-rank" },
-      { title: "GET Hero Position", href: "/get-hero-position" },
-      { title: "GET Hero Detail", href: "/get-hero-detail" },
-      { title: "GET Hero Detail Stats", href: "/get-hero-detail-stats" },
-      { title: "GET Hero Skill Combo", href: "/get-hero-skill-combo" },
-      { title: "GET Hero Rate", href: "/get-hero-rate" },
-      { title: "GET Hero Relation", href: "/get-hero-relation" },
-      { title: "GET Hero Counter", href: "/get-hero-counter" },
-      { title: "GET Hero Compatibility", href: "/get-hero-compatibility" },
+      {
+        title: "GET MLBB Data",
+        href: "/get-mlbb-data",
+        noLink: true,
+        items: [
+          { title: "GET Hero List", href: "/get-hero-list" },
+          { title: "GET Hero Rank", href: "/get-hero-rank" },
+          { title: "GET Hero Position", href: "/get-hero-position" },
+          { title: "GET Hero Detail", href: "/get-hero-detail" },
+          { title: "GET Hero Detail Stats", href: "/get-hero-detail-stats" },
+          { title: "GET Hero Skill Combo", href: "/get-hero-skill-combo" },
+          { title: "GET Hero Rate", href: "/get-hero-rate" },
+          { title: "GET Hero Relation", href: "/get-hero-relation" },
+          { title: "GET Hero Counter", href: "/get-hero-counter" },
+          { title: "GET Hero Compatibility", href: "/get-hero-compatibility" }
+        ]
+      },
+      {
+        title: "GET MPL Data",
+        href: "/get-mpl-data",
+        noLink: true,
+        items: [
+          { title: "GET MPLID Standings", href: "/get-mplid-standings" },
+          { title: "GET MPLID Teams", href: "/get-mplid-teams" },
+          { title: "GET MPLID Team Detail", href: "/get-mplid-team-detail" },
+          { title: "GET MPLID Transfers", href: "/get-mplid-transfers" },
+          { title: "GET MPLID Team Stats", href: "/get-mplid-team-stats" },
+          { title: "GET MPLID Player Stats", href: "/get-mplid-player-stats" },
+          { title: "GET MPLID Hero Stats", href: "/get-mplid-hero-stats" },
+          { title: "GET MPLID Hero Pools", href: "/get-mplid-hero-pools" },
+          { title: "GET MPLID Player Pools", href: "/get-mplid-player-pools" },
+          { title: "GET MPLID MVP Standings", href: "/get-mplid-mvp-standings" }
+        ]
+      }
     ],
   },
 ];

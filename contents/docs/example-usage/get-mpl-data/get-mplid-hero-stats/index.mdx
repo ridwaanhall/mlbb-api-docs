@@ -1,0 +1,59 @@
+---
+title: GET MPLID Hero Stats
+description: API endpoint to get hero statistics based on pick, ban, win, and winrate
+---
+
+## Endpoint
+
+```txt
+GET /api/mplid/hero-stats/
+```
+
+## Example Requests
+
+```txt
+GET /api/mplid/hero-stats/
+```
+
+## Example Usage
+
+### Python requests
+
+    ```python {13} showLineNumbers
+    import requests
+    import json
+
+    def fetch_api(api_url):
+        try:
+            response = requests.get(api_url)
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"Error: {e}")
+            return None
+
+    api_url = "https://mlbb-stats.ridwaanhall.com/api/mplid/hero-stats/"
+    data = fetch_api(api_url)
+
+    print(json.dumps(data, indent=4) if data else "No data fetched.")
+    ```
+
+### Direct API Access
+
+    Click this to [Access the API directly](https://mlbb-stats.ridwaanhall.com/api/mplid/hero-stats/)
+
+## Result
+
+```json {3} showLineNumbers
+[
+    ...,
+    {
+        "hero_name": "Kalea",
+        "hero_logo": "https://cdn2.vistek.id/mlbb/heroes/Kalea.png",
+        "pick": 83,
+        "ban": 69,
+        "win": 42,
+        "win_rate": 51.0
+    }
+]
+```

@@ -1,0 +1,74 @@
+---
+title: GET MPLID Team Detail
+description: API endpoint to get team details including logo, name, social media, and roster.
+---
+
+## Endpoint
+
+```txt
+GET /api/mplid/teams/rrq/
+```
+
+## Path Parameters
+
+1. **team_id**
+   The ID of the hero whose details are to be fetched.
+
+   - **Possible Values:** `rrq`, `geek`, `onic`, `btr`, `ae`, `tlid`, `evos`, `dewa`, `navi`.
+   - **Type:** string
+   - **Required:** `True`
+
+## Example Requests
+
+```txt
+GET /api/mplid/teams/rrq/
+```
+
+## Example Usage
+
+### Python requests
+
+    ```python {13} showLineNumbers
+    import requests
+    import json
+
+    def fetch_api(api_url):
+        try:
+            response = requests.get(api_url)
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"Error: {e}")
+            return None
+
+    api_url = "https://mlbb-stats.ridwaanhall.com/api/mplid/teams/rrq/"
+    data = fetch_api(api_url)
+
+    print(json.dumps(data, indent=4) if data else "No data fetched.")
+    ```
+
+### Direct API Access
+
+    Click this to [Access the API directly](https://mlbb-stats.ridwaanhall.com/api/mplid/teams/rrq/)
+
+## Result
+
+```json {3} showLineNumbers
+{
+    "team_logo": "https://cdn.id-mpl.com/data/teams/rrq-500.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=DO00UK9XG63MGT2KWV9H%2F20250721%2Fsgp1%2Fs3%2Faws4_request&X-Amz-Date=20250721T032229Z&X-Amz-SignedHeaders=host&X-Amz-Expires=21600&X-Amz-Signature=4df04cb715a850e95098a157bcc5bfa90e19f994c31b0767edf4c26d6738f2b3",
+    "team_name": "RRQ HOSHI",
+    "social_media": {
+        "facebook": "https://id-id.facebook.com/Team.RRQ",
+        "instagram": "https://www.instagram.com/teamrrq",
+        "youtube": "https://www.youtube.com/teamrrq"
+    },
+    "roster": [
+        {
+            "player_image": "https://cdn.id-mpl.com/season15/player/RRQ/Khezcute.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=DO00UK9XG63MGT2KWV9H%2F20250721%2Fsgp1%2Fs3%2Faws4_request&X-Amz-Date=20250721T060127Z&X-Amz-SignedHeaders=host&X-Amz-Expires=21600&X-Amz-Signature=7a407584af96e8542937808455c2f385ba64a1f6595049e55834136f6d9ddc3e",
+            "player_name": "Khezcute",
+            "player_role": "Coach"
+        },
+        ...
+    ]
+}
+```

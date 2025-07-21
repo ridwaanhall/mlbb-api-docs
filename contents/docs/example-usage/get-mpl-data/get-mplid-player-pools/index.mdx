@@ -1,0 +1,72 @@
+---
+title: GET MPLID Player Pools
+description: API endpoint to get player pools information about hero
+---
+
+## Endpoint
+
+```txt
+GET /api/mplid/player-pools/
+```
+
+## Example Requests
+
+```txt
+GET /api/mplid/player-pools/
+```
+
+## Example Usage
+
+### Python requests
+
+    ```python {13} showLineNumbers
+    import requests
+    import json
+
+    def fetch_api(api_url):
+        try:
+            response = requests.get(api_url)
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"Error: {e}")
+            return None
+
+    api_url = "https://mlbb-stats.ridwaanhall.com/api/mplid/player-pools/"
+    data = fetch_api(api_url)
+
+    print(json.dumps(data, indent=4) if data else "No data fetched.")
+    ```
+
+### Direct API Access
+
+    Click this to [Access the API directly](https://mlbb-stats.ridwaanhall.com/api/mplid/player-pools/)
+
+## Result
+
+```json {3} showLineNumbers
+[
+    {
+        "hero_name": "Fanny",
+        "hero_logo": "https://mlbb-image.scoregg.com/hero_h/17.png",
+        "total": 7,
+        "players": [
+            ...,
+            {
+                "player_logo": "https://cdn.id-mpl.com/season15/player/EVOS/V2/2_Albert.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=DO00UK9XG63MGT2KWV9H%2F20250721%2Fsgp1%2Fs3%2Faws4_request&X-Amz-Date=20250721T064334Z&X-Amz-SignedHeaders=host&X-Amz-Expires=21600&X-Amz-Signature=1567950043c92cd07d8f83be18fa4d7bc7aada635a1233efcc57f4e8f54db64c",
+                "player_info": "EVOS - Alberttt",
+                "pick": 3,
+                "pick_rate": 33.0
+            },
+            {
+                "player_logo": "https://cdn.id-mpl.com/season15/player/ONIC/Kairi.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=DO00UK9XG63MGT2KWV9H%2F20250721%2Fsgp1%2Fs3%2Faws4_request&X-Amz-Date=20250721T071220Z&X-Amz-SignedHeaders=host&X-Amz-Expires=21600&X-Amz-Signature=d3eadc8e46c2bdf54c4353ab16cf5005b85597c8104f3a8e76987ef6ae3798ff",
+                "player_info": "ONIC ID - Kairi",
+                "pick": 3,
+                "pick_rate": 67.0
+            },
+            ...
+        ]
+    },
+    ...
+]
+```
