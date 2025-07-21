@@ -1,0 +1,60 @@
+---
+title: GET MPLID Transfers
+description: API endpoint to get Transfers including date, name, role, team, and more.
+---
+
+## Endpoint
+
+```txt
+GET /api/mplid/transfers/
+```
+
+## Example Requests
+
+```txt
+GET /api/mplid/transfers/
+```
+
+## Example Usage
+
+### Python requests
+
+    ```python {13} showLineNumbers
+    import requests
+    import json
+
+    def fetch_api(api_url):
+        try:
+            response = requests.get(api_url)
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"Error: {e}")
+            return None
+
+    api_url = "https://mlbb-stats.ridwaanhall.com/api/mplid/transfers/"
+    data = fetch_api(api_url)
+
+    print(json.dumps(data, indent=4) if data else "No data fetched.")
+    ```
+
+### Direct API Access
+
+    Click this to [Access the API directly](https://mlbb-stats.ridwaanhall.com/api/mplid/transfers/)
+
+## Result
+
+```json {4} showLineNumbers
+[
+    {
+        "transfer_date": "13 May 2025",
+        "player_name": "Rave",
+        "player_role": "Ast. Coach",
+        "from_team_name": "RRQ (MDL)",
+        "from_team_logo": "https://cdn.id-mpl.com/data/teams/rrq-64.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=DO00UK9XG63MGT2KWV9H%2F20250721%2Fsgp1%2Fs3%2Faws4_request&X-Amz-Date=20250721T045329Z&X-Amz-SignedHeaders=host&X-Amz-Expires=21600&X-Amz-Signature=2253893c0747266601b6ca9e8dcbea9fe8852a23ed5861a53a98d683f03a9772",
+        "to_team_name": "RRQ (MPL)",
+        "to_team_logo": "https://wsrv.nl/?url=https://ik.imagekit.io/nloe8dhf7w/mplid/s14/teams/rrq-64.png"
+    },
+    ...
+]
+```

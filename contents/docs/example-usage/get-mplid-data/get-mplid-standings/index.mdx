@@ -1,0 +1,60 @@
+---
+title: GET MPLID Standings Team
+description: API endpoint to get standing team including match point and more.
+---
+
+## Endpoint
+
+```txt
+GET /api/mplid/standings/
+```
+
+## Example Requests
+
+```txt
+GET /api/mplid/standings/
+```
+
+## Example Usage
+
+### Python requests
+
+    ```python {13} showLineNumbers
+    import requests
+    import json
+
+    def fetch_api(api_url):
+        try:
+            response = requests.get(api_url)
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"Error: {e}")
+            return None
+
+    api_url = "https://mlbb-stats.ridwaanhall.com/api/mplid/standings/"
+    data = fetch_api(api_url)
+
+    print(json.dumps(data, indent=4) if data else "No data fetched.")
+    ```
+
+### Direct API Access
+
+    Click this to [Access the API directly](https://mlbb-stats.ridwaanhall.com/api/mplid/standings/)
+
+## Result
+
+```json {3} showLineNumbers
+[
+    {
+        "rank": 1,
+        "team_name": "RRQ HOSHI",
+        "team_logo": "https://wsrv.nl/?url=https://ik.imagekit.io/nloe8dhf7w/mplid/s14/teams/rrq-64.png",
+        "match_point": 12,
+        "match_wl": "12-4",
+        "net_game_win": 11,
+        "game_wl": "25-14"
+    },
+    ...
+]
+```

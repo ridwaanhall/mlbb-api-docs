@@ -1,0 +1,65 @@
+---
+title: GET MPLID MVP Standings
+description: API endpoint to get top MVP in MPLID
+---
+
+## Endpoint
+
+```txt
+GET /api/mplid/standings-mvp/
+```
+
+## Example Requests
+
+```txt
+GET /api/mplid/standings-mvp/
+```
+
+## Example Usage
+
+### Python requests
+
+    ```python {13} showLineNumbers
+    import requests
+    import json
+
+    def fetch_api(api_url):
+        try:
+            response = requests.get(api_url)
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"Error: {e}")
+            return None
+
+    api_url = "https://mlbb-stats.ridwaanhall.com/api/mplid/standings-mvp/"
+    data = fetch_api(api_url)
+
+    print(json.dumps(data, indent=4) if data else "No data fetched.")
+    ```
+
+### Direct API Access
+
+    Click this to [Access the API directly](https://mlbb-stats.ridwaanhall.com/api/mplid/standings-mvp/)
+
+## Result
+
+```json {3} showLineNumbers
+[
+    {
+        "rank": 2,
+        "player_name": "RRQ Idok",
+        "player_logo": "https://cdn.id-mpl.com/season15/player/RRQ/2_Idok.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=DO00UK9XG63MGT2KWV9H%2F20250721%2Fsgp1%2Fs3%2Faws4_request&X-Amz-Date=20250721T053616Z&X-Amz-SignedHeaders=host&X-Amz-Expires=21600&X-Amz-Signature=2d02b79ec430652a333b8ae1dc418019fdd48c12989eacd93b7ac3eb6a0deb3e",
+        "team_logo": "https://cdn.id-mpl.com/data/teams/rrq-500.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=DO00UK9XG63MGT2KWV9H%2F20250721%2Fsgp1%2Fs3%2Faws4_request&X-Amz-Date=20250721T032229Z&X-Amz-SignedHeaders=host&X-Amz-Expires=21600&X-Amz-Signature=4df04cb715a850e95098a157bcc5bfa90e19f994c31b0767edf4c26d6738f2b3",
+        "point": 105
+    },
+    {
+        "rank": 3,
+        "player_name": "ONIC Kairi",
+        "player_logo": "https://cdn.id-mpl.com/season15/player/ONIC/Kairi.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=DO00UK9XG63MGT2KWV9H%2F20250721%2Fsgp1%2Fs3%2Faws4_request&X-Amz-Date=20250721T071220Z&X-Amz-SignedHeaders=host&X-Amz-Expires=21600&X-Amz-Signature=d3eadc8e46c2bdf54c4353ab16cf5005b85597c8104f3a8e76987ef6ae3798ff",
+        "team_logo": "https://cdn.id-mpl.com/data/teams/onic-b-500.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=DO00UK9XG63MGT2KWV9H%2F20250721%2Fsgp1%2Fs3%2Faws4_request&X-Amz-Date=20250721T071220Z&X-Amz-SignedHeaders=host&X-Amz-Expires=21600&X-Amz-Signature=103b17a1933b81bab0ec61867f0c45b792ecaa55833fe16302b66ca1e5234dd7",
+        "point": 93
+    },
+    ...
+]
+```

@@ -1,0 +1,56 @@
+---
+title: GET MPLID Teams
+description: API endpoint to get Teams including team logo and team name.
+---
+
+## Endpoint
+
+```txt
+GET /api/mplid/teams/
+```
+
+## Example Requests
+
+```txt
+GET /api/mplid/teams/
+```
+
+## Example Usage
+
+### Python requests
+
+    ```python {13} showLineNumbers
+    import requests
+    import json
+
+    def fetch_api(api_url):
+        try:
+            response = requests.get(api_url)
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"Error: {e}")
+            return None
+
+    api_url = "https://mlbb-stats.ridwaanhall.com/api/mplid/teams/"
+    data = fetch_api(api_url)
+
+    print(json.dumps(data, indent=4) if data else "No data fetched.")
+    ```
+
+### Direct API Access
+
+    Click this to [Access the API directly](https://mlbb-stats.ridwaanhall.com/api/mplid/teams/)
+
+## Result
+
+```json {5} showLineNumbers
+[
+    {
+        "team_url": "https://id-mpl.com/team/ae",
+        "team_logo": "https://cdn.id-mpl.com/data/teams/ae-256.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=DO00UK9XG63MGT2KWV9H%2F20250721%2Fsgp1%2Fs3%2Faws4_request&X-Amz-Date=20250721T041829Z&X-Amz-SignedHeaders=host&X-Amz-Expires=21600&X-Amz-Signature=45b7b5a15b998b71b8ed0d36c3b1728a240a6aab2494bac2fcc3c3141498a604",
+        "team_name": "AE"
+    },
+    ...
+]
+```

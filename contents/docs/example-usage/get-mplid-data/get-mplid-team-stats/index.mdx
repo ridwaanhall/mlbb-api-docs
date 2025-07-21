@@ -1,0 +1,63 @@
+---
+title: GET MPLID Team Statistics
+description: API endpoint to get Team Statistics including KDA, gold, damage, and more.
+---
+
+## Endpoint
+
+```txt
+GET /api/mplid/team-stats/
+```
+
+## Example Requests
+
+```txt
+GET /api/mplid/team-stats/
+```
+
+## Example Usage
+
+### Python requests
+
+    ```python {13} showLineNumbers
+    import requests
+    import json
+
+    def fetch_api(api_url):
+        try:
+            response = requests.get(api_url)
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"Error: {e}")
+            return None
+
+    api_url = "https://mlbb-stats.ridwaanhall.com/api/mplid/team-stats/"
+    data = fetch_api(api_url)
+
+    print(json.dumps(data, indent=4) if data else "No data fetched.")
+    ```
+
+### Direct API Access
+
+    Click this to [Access the API directly](https://mlbb-stats.ridwaanhall.com/api/mplid/team-stats/)
+
+## Result
+
+```json {3} showLineNumbers
+[
+    {
+        "team_name": "ALTER EGO ESPORTS",
+        "team_logo": "https://wsrv.nl/?url=https://ik.imagekit.io/nloe8dhf7w/mplid/s14/teams/ae-64.png",
+        "kills": 553,
+        "deaths": 530,
+        "assists": 1340,
+        "gold": 1892393,
+        "damage": 7789781,
+        "lord": 44,
+        "tortoise": 58,
+        "tower": 218
+    },
+    ...
+]
+```

@@ -1,0 +1,109 @@
+---
+title: GET MPLID Hero Pools
+description: API endpoint to get hero pools by player
+---
+
+## Endpoint
+
+```txt
+GET /api/mplid/hero-pools/
+```
+
+## Example Requests
+
+```txt
+GET /api/mplid/hero-pools/
+```
+
+## Example Usage
+
+### Python requests
+
+    ```python {13} showLineNumbers
+    import requests
+    import json
+
+    def fetch_api(api_url):
+        try:
+            response = requests.get(api_url)
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"Error: {e}")
+            return None
+
+    api_url = "https://mlbb-stats.ridwaanhall.com/api/mplid/hero-pools/"
+    data = fetch_api(api_url)
+
+    print(json.dumps(data, indent=4) if data else "No data fetched.")
+    ```
+
+### Direct API Access
+
+    Click this to [Access the API directly](https://mlbb-stats.ridwaanhall.com/api/mplid/hero-pools/)
+
+## Result
+
+```json {3} showLineNumbers
+[
+    {
+        "player_name": "Nino",
+        "team_logo": "https://wsrv.nl/?url=https://ik.imagekit.io/nloe8dhf7w/mplid/s14/teams/ae-64.png",
+        "lane": "EXP",
+        "total_heroes": 10,
+        "hero_pool": [
+            {
+                "hero_logo": "https://cdn2.vistek.id/mlbb/heroes/Cici.webp",
+                "pick": 8,
+                "pick_rate": 75.0
+            },
+            {
+                "hero_logo": "https://cdn2.vistek.id/mlbb/heroes/Phoveus.jpg",
+                "pick": 7,
+                "pick_rate": 43.0
+            },
+            {
+                "hero_logo": "https://cdn2.vistek.id/mlbb/heroes/Hylos.jpg",
+                "pick": 6,
+                "pick_rate": 50.0
+            },
+            {
+                "hero_logo": "https://cdn2.vistek.id/mlbb/heroes/Gatotkaca.jpg",
+                "pick": 4,
+                "pick_rate": 50.0
+            },
+            {
+                "hero_logo": "https://cdn2.vistek.id/mlbb/heroes/Lukas.webp",
+                "pick": 4,
+                "pick_rate": 75.0
+            },
+            {
+                "hero_logo": "https://cdn2.vistek.id/mlbb/heroes/Chou.jpg",
+                "pick": 3,
+                "pick_rate": 67.0
+            },
+            {
+                "hero_logo": "https://cdn2.vistek.id/mlbb/heroes/Hilda.jpg",
+                "pick": 3,
+                "pick_rate": 0.0
+            },
+            {
+                "hero_logo": "https://cdn2.vistek.id/mlbb/heroes/Badang.jpg",
+                "pick": 2,
+                "pick_rate": 100.0
+            },
+            {
+                "hero_logo": "https://cdn2.vistek.id/mlbb/heroes/Valentina.jpg",
+                "pick": 2,
+                "pick_rate": 50.0
+            },
+            {
+                "hero_logo": "https://cdn2.vistek.id/mlbb/heroes/Esmeralda.jpg",
+                "pick": 1,
+                "pick_rate": 0.0
+            }
+        ]
+    },
+    ...
+]
+```
