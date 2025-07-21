@@ -41,8 +41,8 @@ export const ROUTES: EachRoute[] = [
         ]
       },
       {
-        title: "GET MPL Data",
-        href: "/get-mpl-data",
+        title: "GET MPLID Data",
+        href: "/get-mplid-data",
         noLink: true,
         items: [
           { title: "GET MPLID Standings", href: "/get-mplid-standings" },
