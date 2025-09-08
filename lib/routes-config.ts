@@ -32,6 +32,7 @@ export const ROUTES: EachRoute[] = [
         href: "/get-mlbb-data",
         noLink: true,
         items: [
+          { title: "GET Hero List New", href: "/get-hero-list-new" },
           { title: "GET Hero List", href: "/get-hero-list" },
           { title: "GET Hero Rank", href: "/get-hero-rank" },
           { title: "GET Hero Position", href: "/get-hero-position" },
