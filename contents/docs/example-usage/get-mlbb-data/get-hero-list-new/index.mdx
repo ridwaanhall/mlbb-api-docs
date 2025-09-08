@@ -1,0 +1,122 @@
+---
+title: GET Hero List New
+description: Get hero list new. it shows hero id, hero name, hero image head, and hero image map.
+---
+
+## Endpoint
+
+```txt
+GET /api/hero-list-new/
+```
+
+## Example Requests
+
+```txt
+GET /api/hero-list-new/
+```
+
+> This request fetches hero list new.
+
+## Example Usage
+
+### Python requests
+
+    ```python {13} showLineNumbers
+    import requests
+    import json
+
+    def fetch_api(api_url):
+        try:
+            response = requests.get(api_url)
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"Error: {e}")
+            return None
+
+    api_url = "https://mlbb-stats.ridwaanhall.com/api/hero-list-new/"
+    data = fetch_api(api_url)
+
+    print(json.dumps(data, indent=4) if data else "No data fetched.")
+    ```
+
+### Direct API Access
+
+    Click this to [Access the API directly](https://mlbb-stats.ridwaanhall.com/api/hero-list-new/)
+
+## Result
+
+```json showLineNumbers
+{
+    "code": 0,
+    "message": "OK",
+    "data": {
+        "records": [
+            {
+                "data": {
+                    "hero": {
+                        "data": {
+                            "head": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_90/100_8d965f05f84621a51f799aeb8fb5f4c4.png",
+                            "name": "Zetian",
+                            "smallmap": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_90/100_22dc8b16ea98a735027c3141b74ef841.png"
+                        }
+                    },
+                    "hero_id": 129,
+                    "relation": {
+                        "assist": {
+                            "target_hero_id": [
+                                112,
+                                14
+                            ]
+                        },
+                        "strong": {
+                            "target_hero_id": [
+                                2,
+                                16
+                            ]
+                        },
+                        "weak": {
+                            "target_hero_id": [
+                                110
+                            ]
+                        }
+                    }
+                }
+            },
+            {
+                "data": {
+                    "hero": {
+                        "data": {
+                            "head": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_64/100_4f3d4649e301c76daf20bd8811f3095c.png",
+                            "name": "Kalea",
+                            "smallmap": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage_1_9_64/100_9c5f2904026ba88b7aba8c9b2722f4ad.png"
+                        }
+                    },
+                    "hero_id": 128,
+                    "relation": {
+                        "assist": {
+                            "target_hero_id": [
+                                15,
+                                42,
+                                13
+                            ]
+                        },
+                        "strong": {
+                            "target_hero_id": [
+                                18,
+                                61
+                            ]
+                        },
+                        "weak": {
+                            "target_hero_id": [
+                                48,
+                                19
+                            ]
+                        }
+                    }
+                }
+            },
+        ]
+    }
+}
+```
