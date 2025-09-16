@@ -16,6 +16,7 @@ export const ROUTES: EachRoute[] = [
       { title: "Introduction", href: "/introduction" },
       { title: "API Language", href: "/language" },
       { title: "Sponsor Me", href: "/sponsor" },
+      { title: "SDK", href: "/mlbb-sdk" },
     ],
   },
   { 
