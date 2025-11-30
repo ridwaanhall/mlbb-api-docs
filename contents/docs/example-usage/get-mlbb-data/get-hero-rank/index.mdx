@@ -1,6 +1,6 @@
 ---
 title: GET Hero Rank
-description: The query parameters for fetching hero rankings include the number of days (1, 3, 7, 15, 30), rank category (all, epic, legend, mythic, honor, glory), number of records per page (1-130), page index (1-130), sorting field (pick_rate, ban_rate, win_rate), and sorting order (asc, desc). The default values are 1 day, all ranks, 20 records per page, page index 1, sorted by win_rate in descending order. The result includes a status code, message, and data with records of heroes, including their appearance rate, ban rate, win rate, and IDs, along with sub-heroes and their respective details. The total number of records is also provided.
+description: The query parameters for fetching hero rankings include the number of days (1, 3, 7, 15, 30), rank category (all, epic, legend, mythic, honor, glory), number of records per page (1-130 (still update until now)), page index (1-130 (still update until now)), sorting field (pick_rate, ban_rate, win_rate), and sorting order (asc, desc). The default values are 1 day, all ranks, 20 records per page, page index 1, sorted by win_rate in descending order. The result includes a status code, message, and data with records of heroes, including their appearance rate, ban rate, win rate, and IDs, along with sub-heroes and their respective details. The total number of records is also provided.
 ---
 
 ## Endpoint
@@ -26,13 +26,13 @@ GET /api/hero-rank/
 3. **size**
    Number of records per page.
 
-   - **Possible Values:** From `1` to `130`
+   - **Possible Values:** From `1` to `130` (still update until now))
    - **Default:** `20`
 
 4. **index**
    Page index for pagination.
 
-   - **Possible Values:** From `1` to `130`
+   - **Possible Values:** From `1` to `130` (still update until now))
    - **Default:** `1`
 
 5. **sort_field**
