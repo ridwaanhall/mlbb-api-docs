@@ -6,7 +6,7 @@ description: The API endpoint uses a required path parameter, hero_id, an intege
 ## Endpoint
 
 ```txt
-GET /api/hero-skill-combo/<int:hero_id>/
+GET /api/hero-skill-combo/<str:heroid_or_name>/
 ```
 
 ## Path Parameters
@@ -14,7 +14,7 @@ GET /api/hero-skill-combo/<int:hero_id>/
 1. **hero_id**
    The ID of the hero whose skill combinations are to be fetched.
 
-   - **Possible Values:** From `1` to `130` (still update until now))
+   - **Possible Values:** From `1` to `130` (still update until now)
    - **Type:** integer
    - **Required:** `True`
 
@@ -22,6 +22,7 @@ GET /api/hero-skill-combo/<int:hero_id>/
 
 ```txt
 GET /api/hero-skill-combo/127/
+GET /api/hero-compatibility/lukas/
 ```
 
 > This request fetches skill combination strategies for a specific hero with the ID 127.

@@ -6,7 +6,8 @@ description: The API endpoint requires a path parameter called main_heroid, an i
 ## Endpoint
 
 ```txt
-GET /api/hero-detail-stats/<int:main_heroid>/
+GET /api/hero-detail-stats/<str:heroid_or_name>/
+GET /api/hero-compatibility/lukas/
 ```
 
 ## Path Parameters
@@ -14,7 +15,7 @@ GET /api/hero-detail-stats/<int:main_heroid>/
 1. **main_heroid**
    The ID of the main hero whose detailed statistics are to be fetched.
 
-   - **Possible Values:** From `1` to `130` (still update until now))
+   - **Possible Values:** From `1` to `130` (still update until now)
    - **Type:** integer
    - **Required:** `True`
 

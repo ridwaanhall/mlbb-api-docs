@@ -6,7 +6,7 @@ description: The API endpoint utilizes a required path parameter, hero_id, an in
 ## Endpoint
 
 ```txt
-GET /api/hero-relation/<int:hero_id>/
+GET /api/hero-relation/<str:heroid_or_name>/
 ```
 
 ## Path Parameters
@@ -14,7 +14,7 @@ GET /api/hero-relation/<int:hero_id>/
 1. **hero_id**
    The ID of the hero whose relationships are to be fetched.
 
-   - **Possible Values:** From `1` to `130` (still update until now))
+   - **Possible Values:** From `1` to `130` (still update until now)
    - **Type:** integer
    - **Required:** `True`
 
@@ -22,6 +22,7 @@ GET /api/hero-relation/<int:hero_id>/
 
 ```txt
 GET /api/hero-relation/127/
+GET /api/hero-compatibility/lukas/
 ```
 
 > This request fetches relationship data for a specific hero with the ID 127.
