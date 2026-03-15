@@ -29,8 +29,8 @@ export const ROUTES: EachRoute[] = [
     noLink: true,
     items: [
       {
-        title: "GET MLBB Data",
-        href: "/get-mlbb-data",
+        title: "MLBB Data",
+        href: "/mlbb-data",
         noLink: true,
         items: [
           { title: "GET Hero List", href: "/get-hero-list" },
@@ -46,8 +46,8 @@ export const ROUTES: EachRoute[] = [
         ]
       },
       {
-        title: "GET Academy Data",
-        href: "/get-academy-data",
+        title: "Academy Data",
+        href: "/academy-data",
         noLink: true,
         items: [
           { title: "GET Version", href: "/get-version" },
@@ -73,8 +73,8 @@ export const ROUTES: EachRoute[] = [
         ]
       },
       {
-        title: "GET MPLID Data",
-        href: "/get-mplid-data",
+        title: "MPLID Data",
+        href: "/mplid-data",
         noLink: true,
         items: [
           { title: "GET MPLID Standings", href: "/get-mplid-standings" },
