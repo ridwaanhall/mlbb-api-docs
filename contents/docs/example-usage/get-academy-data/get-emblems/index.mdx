@@ -1,0 +1,80 @@
+---
+title: GET Academy Emblems
+description: API endpoint to fetch all available Mobile Legends emblem skills data.
+---
+
+## Endpoint
+
+```txt
+GET /api/academy/emblems/
+```
+
+## Path Parameters
+
+None.
+
+## Example Requests
+
+```txt
+GET /api/academy/emblems/
+```
+
+## Example Usage
+
+### Python requests
+
+```python {13} showLineNumbers
+import requests
+import json
+
+def fetch_api(api_url):
+    try:
+        response = requests.get(api_url)
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"Error: {e}")
+        return None
+
+api_url = "https://mlbb-stats.rone.dev/api/academy/emblems/"
+data = fetch_api(api_url)
+
+print(json.dumps(data, indent=4) if data else "No data fetched.")
+```
+
+### Direct API Access
+
+Click this to Access the API directly [mlbb-stats.rone.dev/api/academy/emblems](https://mlbb-stats.rone.dev/api/academy/emblems)
+
+## Result
+
+```json {9,18} showLineNumbers
+{
+    "code": 0,
+    "message": "OK",
+    "data": {
+        "records": [
+            {
+                "data": {
+                    "emblemskill": {
+                        "skillname": "Weapons Master",
+                        "skilldesc": "Physical Attack and Magic Power gained from equipment, emblem, talents, and skills are increased by 5%.",
+                        "skillicon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_893891a86726cbf0b00401127a1f9486.png"
+                    }
+                }
+            },
+            {
+                "data": {
+                    "emblemskill": {
+                        "skillname": "Weakness Finder",
+                        "skilldesc": "Basic Attacks slow enemies by 50% and reduce their Attack Speed by 30%. Duration: 1s. Cooldown: 10s (each Basic Attack reduces it by 1s, down to 3s).",
+                        "skillicon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_734122f40ec6308b3c37a10c3059b943.png"
+                    }
+                }
+            },
+            ...
+        ],
+        "total": 132
+    }
+}
+```

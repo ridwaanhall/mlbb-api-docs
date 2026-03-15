@@ -1,0 +1,74 @@
+---
+title: GET Academy Version
+description: API endpoint to fetch recorded Mobile Legends game versions.
+---
+
+## Endpoint
+
+```txt
+GET /api/academy/version/
+```
+
+## Path Parameters
+
+None.
+
+## Example Requests
+
+```txt
+GET /api/academy/version/
+```
+
+## Example Usage
+
+### Python requests
+
+```python {13} showLineNumbers
+import requests
+import json
+
+def fetch_api(api_url):
+    try:
+        response = requests.get(api_url)
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"Error: {e}")
+        return None
+
+api_url = "https://mlbb-stats.rone.dev/api/academy/version/"
+data = fetch_api(api_url)
+
+print(json.dumps(data, indent=4) if data else "No data fetched.")
+```
+
+### Direct API Access
+
+Click this to [Access the API directly](https://mlbb-stats.rone.dev/api/academy/version/)
+
+## Result
+
+```json {9} showLineNumbers
+{
+    "code": 0,
+    "message": "OK",
+    "data": {
+        "records": [
+            {
+                "createdAt": 1759044257232,
+                "data": {
+                    "game_version": "2.1.18"
+                },
+                "form": {
+                    "id": 2777742
+                },
+                "id": 967057876869504,
+                "uin": "1",
+                "updatedAt": 1759044257232
+            },
+            ...
+        ],
+        "total": 5
+    }
+}
+```

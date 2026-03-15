@@ -46,6 +46,33 @@ export const ROUTES: EachRoute[] = [
         ]
       },
       {
+        title: "GET Academy Data",
+        href: "/get-academy-data",
+        noLink: true,
+        items: [
+          { title: "GET Version", href: "/get-version" },
+          { title: "GET Heroes", href: "/get-heroes" },
+          { title: "GET Roles", href: "/get-roles" },
+          { title: "GET Equipment", href: "/get-equipment" },
+          { title: "GET Equipment Details", href: "/get-equipment-details" },
+          { title: "GET Spells", href: "/get-spells" },
+          { title: "GET Emblems", href: "/get-emblems" },
+          { title: "GET Recommended", href: "/get-recommended" },
+          { title: "GET Recommended Detail", href: "/get-recommended-detail" },
+          { title: "GET Guide", href: "/get-guide" },
+          { title: "GET Guide Stats", href: "/get-guide-stats" },
+          { title: "GET Guide Lane", href: "/get-guide-lane" },
+          { title: "GET Guide Time Win Rate", href: "/get-guide-time-win-rate" },
+          { title: "GET Guide Builds", href: "/get-guide-builds" },
+          { title: "GET Guide Counters", href: "/get-guide-counters" },
+          { title: "GET Guide Teammates", href: "/get-guide-teammates" },
+          { title: "GET Guide Trends", href: "/get-guide-trends" },
+          { title: "GET Guide Recommended", href: "/get-guide-recommended" },
+          { title: "GET Hero Ratings", href: "/get-hero-ratings" },
+          { title: "GET Hero Ratings Subject", href: "/get-hero-ratings-subject" }
+        ]
+      },
+      {
         title: "GET MPLID Data",
         href: "/get-mplid-data",
         noLink: true,

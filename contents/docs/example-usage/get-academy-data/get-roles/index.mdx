@@ -1,0 +1,123 @@
+---
+title: GET Academy Roles
+description: API endpoint to fetch all available Mobile Legends roles data.
+---
+
+## Endpoint
+
+```txt
+GET /api/academy/roles/
+```
+
+## Path Parameters
+
+None.
+
+## Example Requests
+
+```txt
+GET /api/academy/roles/
+```
+
+## Example Usage
+
+### Python requests
+
+```python {13} showLineNumbers
+import requests
+import json
+
+def fetch_api(api_url):
+    try:
+        response = requests.get(api_url)
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"Error: {e}")
+        return None
+
+api_url = "https://mlbb-stats.rone.dev/api/academy/roles/"
+data = fetch_api(api_url)
+
+print(json.dumps(data, indent=4) if data else "No data fetched.")
+```
+
+### Direct API Access
+
+Click this to Access the API directly [mlbb-stats.rone.dev/api/academy/roles](https://mlbb-stats.rone.dev/api/academy/roles/)
+
+## Result
+
+```json {16,45} showLineNumbers
+{
+    "code": 0,
+    "message": "OK",
+    "data": {
+        "records": [
+            {
+                "caption": "通用",
+                "createdAt": 1721285889064,
+                "data": {
+                    "emblem_detail": {
+                        "data": {
+                            "attriicon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_4e0cd7364830b178279479bff1146e5e.png",
+                            "emblemattr": {
+                                "emblemattr": "+12 HP Regen\n+12 Mana Regen\n+275 Extra Max HP\n+22 Adaptive Attack\n",
+                                "emblemattrid": "2000160",
+                                "emblemname": "All"
+                            },
+                            "emblemid": 20001,
+                            "emblemname": "All"
+                        }
+                    },
+                    "emblem_icon": "https://akmweb.youngjoygame.com/web/gms/image/cf9a85ddcdc9d53f3a1b76f8d8965d53.svg",
+                    "emblem_id": 20001,
+                    "emblem_title": "All"
+                }
+            },
+            {
+                "_id": "6698bd01613093b976b4a90f",
+                "caption": "坦克",
+                "configId": 144237,
+                "createdAt": 1721285889076,
+                "createdUser": "nickjin",
+                "data": {
+                    "_object": 2740627,
+                    "emblem_detail": {
+                        "_createdAt": 1723097697235,
+                        "_id": "66b46261f25dc3aacf517fa0",
+                        "_updatedAt": 1727436297890,
+                        "data": {
+                            "attriicon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_9854de7cfbb30c9fb0002521a274be4c.png",
+                            "attriicon2": "",
+                            "emblemattr": {
+                                "emblemattr": "+500 Extra Max HP\n+10 Extra Physical Defense\n+10 Extra Magic Defense\n+4 HP Regen\n",
+                                "emblemattrid": "2000360",
+                                "emblemname": "Tank"
+                            },
+                            "emblembg": 0,
+                            "emblemid": 20003,
+                            "emblemname": "Tank"
+                        },
+                        "id": 100049,
+                        "sourceId": 2718120
+                    },
+                    "emblem_icon": "https://akmweb.youngjoygame.com/web/gms/image/7184e72d9151b05a25b365e5a5058b10.svg",
+                    "emblem_id": 20003,
+                    "emblem_title": "Tank"
+                },
+                "dynamic": null,
+                "id": 2740641,
+                "linkId": [
+                    2740627
+                ],
+                "sort": 0,
+                "updatedAt": 1721287916467,
+                "updatedUser": "nickjin"
+            },
+            ...
+        ],
+        "total": 7
+    }
+}
+```

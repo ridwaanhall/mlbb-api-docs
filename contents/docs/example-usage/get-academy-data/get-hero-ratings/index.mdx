@@ -1,0 +1,112 @@
+---
+title: GET Academy Hero Ratings
+description: API endpoint to fetch Mobile Legends hero ratings, rankings, and community votes across different categories (e.g., strongest mage, charismatic queen, jungle king).
+---
+
+## Endpoint
+
+```txt
+GET /api/academy/hero-ratings/
+```
+
+## Path Parameters
+
+None.
+
+## Example Requests
+
+```txt
+GET /api/academy/hero-ratings/
+```
+
+## Example Usage
+
+### Python requests
+
+```python {13} showLineNumbers
+import requests
+import json
+
+def fetch_api(api_url):
+    try:
+        response = requests.get(api_url)
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"Error: {e}")
+        return None
+
+api_url = "http://127.0.0.1/api/academy/hero-ratings/"
+data = fetch_api(api_url)
+
+print(json.dumps(data, indent=4) if data else "No data fetched.")
+```
+
+### Direct API Access
+
+Click this to Access the API directly [mlbb-stats.rone.dev/api/academy/hero-ratings](https://mlbb-stats.rone.dev/api/academy/hero-ratings/)
+
+## Result
+
+```json {9,38,48} showLineNumbers
+{
+    "code": 0,
+    "message": "Success",
+    "data": {
+        "total": 12,
+        "list": [
+            {
+                "subject": 3275335,
+                "title": "Vote for MLBB's Charismatic Queens!",
+                "desc": "Which female hero embodies mature charm and strength?",
+                "comment_count": 594,
+                "ranking": [
+                    {
+                        "title": "Zetian",
+                        "score": "9.1",
+                        "score_total": 1670,
+                        "score_count": 184,
+                        "hot_comment": "Gugu"
+                    },
+                    {
+                        "title": "Eudora",
+                        "score": "8.6",
+                        "score_total": 676,
+                        "score_count": 79,
+                        "hot_comment": "yuge Damage if in early"
+                    },
+                    {
+                        "title": "Obsidia",
+                        "score": "7.8",
+                        "score_total": 272,
+                        "score_count": 35,
+                        "hot_comment": "So good"
+                    }
+                ]
+            },
+            {
+                "subject": 3275334,
+                "title": "Vote for the MLBB King of the Jungle!",
+                "comment_count": 407,
+                "ranking": [
+                    { "title": "Fanny", "score": "8.6", "score_total": 586 },
+                    { "title": "Fredrinn", "score": "8.7", "score_total": 472 },
+                    { "title": "Aamon", "score": "8.8", "score_total": 378 }
+                ]
+            },
+            {
+                "subject": 3269074,
+                "title": "Who Is the Strongest Mage in the Current Patch!",
+                "comment_count": 1135,
+                "ranking": [
+                    { "title": "Kagura", "score": "8.8", "score_total": 1722 },
+                    { "title": "Eudora", "score": "8.8", "score_total": 1342 },
+                    { "title": "Zetian", "score": "8.4", "score_total": 750 }
+                ]
+            },
+            ...
+        ],
+        "has_more": true
+    }
+}
+```

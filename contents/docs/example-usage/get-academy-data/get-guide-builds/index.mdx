@@ -1,0 +1,121 @@
+---
+title: GET Academy Hero Guide Builds
+description: API endpoint to fetch build recommendations for a specific Mobile Legends hero guide by hero ID.
+---
+
+## Endpoint
+
+```txt
+GET /api/academy/guide/{hero_id}/builds/
+```
+
+## Path Parameters
+
+- **hero_id** (integer): Unique identifier of the hero.  
+  Example: `132` (Marcel)
+
+## Example Requests
+
+```txt
+GET /api/academy/guide/132/builds/
+```
+
+## Example Usage
+
+### Python requests
+
+```python {13} showLineNumbers
+import requests
+import json
+
+def fetch_api(api_url):
+    try:
+        response = requests.get(api_url)
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"Error: {e}")
+        return None
+
+api_url = "http://127.0.0.1/api/academy/guide/132/builds/"
+data = fetch_api(api_url)
+
+print(json.dumps(data, indent=4) if data else "No data fetched.")
+```
+
+### Direct API Access
+
+Click this to Access the API directly [mlbb-stats.rone.dev/api/academy/guide/132/builds](https://mlbb-stats.rone.dev/api/academy/guide/132/builds)
+
+## Result
+
+```json {10,11,20,44,55} showLineNumbers
+{
+    "code": 0,
+    "message": "OK",
+    "data": {
+        "records": [
+            {
+                "id": 4102012,
+                "data": {
+                    "hero_name": "时光",
+                    "heroid": 132,
+                    "real_road": 2,
+                    "build": [
+                        {
+                            "battleskill": {
+                                "data": {
+                                    "__data": {
+                                        "skillid": 20050,
+                                        "skillname": "Revitalize",
+                                        "skillshortdesc": "Large AOE Heal",
+                                        "skillicon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_3377a32a4db8d4009b37cfdbe29ed586.png"
+                                    }
+                                }
+                            },
+                            "build_pick_rate": 0.0590843438245272,
+                            "build_win_rate": 0.5076748152359295,
+                            "emblem": {
+                                "data": {
+                                    "emblemid": 20008,
+                                    "emblemname": "Support",
+                                    "emblemattr": {
+                                        "emblemname": "Support",
+                                        "emblemattr": "+12% Healing Effect\n+10% Cooldown Reduction\n+6% Movement Speed\n"
+                                    }
+                                }
+                            },
+                            "equipid": [2212, 3206, 3204],
+                            "new_rune_skill": [811, 321, 331]
+                        },
+                        {
+                            "battleskill": {
+                                "data": {
+                                    "__data": {
+                                        "skillid": 20100,
+                                        "skillname": "Flicker",
+                                        "skillshortdesc": "Mobility",
+                                        "skillicon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_ab75dcf8db18518977621399c260ea44.png"
+                                    }
+                                }
+                            },
+                            "build_pick_rate": 0.0492929360787343,
+                            "build_win_rate": 0.5117546848381601,
+                            "emblem": {
+                                "data": {
+                                    "emblemid": 20008,
+                                    "emblemname": "Support"
+                                }
+                            },
+                            "equipid": [2212, 3206, 3204],
+                            "new_rune_skill": [811, 321, 331]
+                        },
+                        ...
+                    ]
+                }
+            }
+        ],
+        "total": 1
+    }
+}
+```

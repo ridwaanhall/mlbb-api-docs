@@ -1,0 +1,79 @@
+---
+title: GET Academy Hero Guide Trends
+description: API endpoint to fetch historical trend statistics (win rate, ban rate, appearance rate) for a specific Mobile Legends hero guide by hero ID.
+---
+
+## Endpoint
+
+```txt
+GET /api/academy/guide/{hero_id}/trends/
+```
+
+## Path Parameters
+
+- **hero_id** (integer): Unique identifier of the hero.  
+  Example: `132` (Marcel)
+
+## Example Requests
+
+```txt
+GET /api/academy/guide/132/trends/
+```
+
+## Example Usage
+
+### Python requests
+
+```python {13} showLineNumbers
+import requests
+import json
+
+def fetch_api(api_url):
+    try:
+        response = requests.get(api_url)
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"Error: {e}")
+        return None
+
+api_url = "http://127.0.0.1/api/academy/guide/132/trends/"
+data = fetch_api(api_url)
+
+print(json.dumps(data, indent=4) if data else "No data fetched.")
+```
+
+### Direct API Access
+
+Click this to Access the API directly [mlbb-stats.rone.dev/api/academy/guide/132/trends](https://mlbb-stats.rone.dev/api/academy/guide/132/trends/)
+
+## Result
+
+```json {10} showLineNumbers
+{
+    "code": 0,
+    "message": "OK",
+    "data": {
+        "records": [
+            {
+                "id": 105124,
+                "data": {
+                    "bigrank": "101",
+                    "main_heroid": 132,
+                    "match_type": "1",
+                    "win_rate": [
+                        { "date": "2026-03-13", "win_rate": 0.473261, "ban_rate": 0.713809, "app_rate": 0.005895 },
+                        { "date": "2026-03-12", "win_rate": 0.471584, "ban_rate": 0.841422, "app_rate": 0.00603 },
+                        { "date": "2026-03-11", "win_rate": 0.466081, "ban_rate": 0.858746, "app_rate": 0.006014 },
+                        { "date": "2026-03-10", "win_rate": 0.466081, "ban_rate": 0.795894, "app_rate": 0.004872 },
+                        { "date": "2026-03-09", "win_rate": 0.466081, "ban_rate": 0.73499,  "app_rate": 0.004018 },
+                        { "date": "2026-03-08", "win_rate": 0.466081, "ban_rate": 0.682383, "app_rate": 0.003403 },
+                        { "date": "2026-03-07", "win_rate": 0.466081, "ban_rate": 0.631775, "app_rate": 0.002905 }
+                    ]
+                }
+            }
+        ],
+        "total": 1
+    }
+}
+```

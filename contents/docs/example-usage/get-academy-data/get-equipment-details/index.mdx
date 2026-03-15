@@ -1,0 +1,85 @@
+---
+title: GET Academy Equipment Details
+description: API endpoint to fetch detailed information about Mobile Legends equipment, including stats, skills, and tips.
+---
+
+## Endpoint
+
+```txt
+GET /api/academy/equipment-details/
+```
+
+## Path Parameters
+
+None.
+
+## Example Requests
+
+```txt
+GET /api/academy/equipment-details/
+```
+
+## Example Usage
+
+### Python requests
+
+```python {13} showLineNumbers
+import requests
+import json
+
+def fetch_api(api_url):
+    try:
+        response = requests.get(api_url)
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"Error: {e}")
+        return None
+
+api_url = "https://mlbb-stats.rone.dev/api/academy/equipment-details/"
+data = fetch_api(api_url)
+
+print(json.dumps(data, indent=4) if data else "No data fetched.")
+```
+
+### Direct API Access
+
+Click this to Access the API directly [mlbb-stats.rone.dev/api/academy/equipment-details](https://mlbb-stats.rone.dev/api/academy/equipment-details/)
+
+## Result
+
+```json {12,40} showLineNumbers
+{
+    "code": 0,
+    "message": "OK",
+    "data": {
+        "records": [
+            {
+                "data": {
+                    "equipicon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_ca2a5c2be6010eb0ecff954a27bf05db.png",
+                    "equipid": 3573,
+                    "equipname": "Demon Boots - Favor",
+                    "equipskilldesc": "Passive - Favor: Mysticism: Getting a kill or assist on an enemy Minion will restore 4% Mana. Devotion: Gain 35% Gold and EXP independently when near allies. Thriving: Gain 6 Gold and 12 EXP every 5s, boosted after 8 minutes. Blessing: Unlock after accumulating 1000 Gold via Devotion and Thriving.",
+                    "equiptips": "+40 Movement Speed<br>+10 Mana Regen<br>",
+                    "equiptype": "5",
+                    "equiptypename": "Roam"
+                }
+            },
+            {
+                "data": {
+                    "equipicon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_faa3e01370ba06df5450c2e72be3ab87.png",
+                    "equipid": 1002,
+                    "equipname": "Knife",
+                    "equipskilldesc": "",
+                    "equiptips": "+10% Extra Attack Speed<br>",
+                    "equiptype": "0",
+                    "equiptypename": "Attack",
+                    "targetequipid": "1006;1007;2003;2006;2305;3005;3012;3015;3451;3452;3453;3551;3552;3553;3554"
+                }
+            },
+            ...
+        ],
+        "total": 152
+    }
+}
+```

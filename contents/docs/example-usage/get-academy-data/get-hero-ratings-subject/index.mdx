@@ -1,0 +1,101 @@
+---
+title: GET Academy Hero Ratings Subject
+description: API endpoint to fetch detailed rating results for a specific Mobile Legends hero ratings subject by subject ID.
+---
+
+## Endpoint
+
+```txt
+GET /api/academy/hero-ratings/{subject_id}/
+```
+
+## Path Parameters
+
+- **subject_id** (integer): Unique identifier of the rating subject.  
+  Example: `3275335` (Charismatic Queens)
+
+## Example Requests
+
+```txt
+GET /api/academy/hero-ratings/3275335/
+```
+
+## Example Usage
+
+### Python requests
+
+```python {13} showLineNumbers
+import requests
+import json
+
+def fetch_api(api_url):
+    try:
+        response = requests.get(api_url)
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"Error: {e}")
+        return None
+
+api_url = "http://127.0.0.1/api/academy/hero-ratings/3275335/"
+data = fetch_api(api_url)
+
+print(json.dumps(data, indent=4) if data else "No data fetched.")
+```
+
+### Direct API Access
+
+Click this to Access the API directly [mlbb-stats.rone.dev/api/academy/hero-ratings/3275335](https://mlbb-stats.rone.dev/api/academy/hero-ratings/3275335/)
+
+## Result
+
+```json {12,45} showLineNumbers
+{
+    "code": 0,
+    "message": "Success",
+    "data": {
+        "subject": {
+            "id": "3275335",
+            "title": "Vote for MLBB's Charismatic Queens! Which female hero in the Land of Dawn has the most mature charm?",
+            "desc": "They are battlefield leaders with commanding presence..."
+        },
+        "list": [
+            {
+                "title": "Zetian",
+                "score": "9.1",
+                "score_total": 1670,
+                "score_count": 184,
+                "hot_comment": "Gugu"
+            },
+            {
+                "title": "Eudora",
+                "score": "8.6",
+                "score_total": 676,
+                "score_count": 79,
+                "hot_comment": "yuge Damage if in early"
+            },
+            {
+                "title": "Obsidia",
+                "score": "7.8",
+                "score_total": 282,
+                "score_count": 36,
+                "hot_comment": "So good"
+            },
+            {
+                "title": "Aurora",
+                "score": "8.2",
+                "score_total": 238,
+                "score_count": 29
+            },
+            {
+                "title": "Lesley",
+                "score": "8.1",
+                "score_total": 236,
+                "score_count": 29
+            },
+            ...
+        ],
+        "total": 20
+    }
+}
+```

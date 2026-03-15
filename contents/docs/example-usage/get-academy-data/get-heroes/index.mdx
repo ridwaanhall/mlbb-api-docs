@@ -1,0 +1,127 @@
+---
+title: GET Academy Heroes
+description: API endpoint to fetch all available Mobile Legends heroes data.
+---
+
+## Endpoint
+
+```txt
+GET /api/academy/heroes/
+```
+
+## Path Parameters
+
+None.
+
+## Example Requests
+
+```txt
+GET /api/academy/heroes/
+```
+
+## Example Usage
+
+### Python requests
+
+```python {13} showLineNumbers
+import requests
+import json
+
+def fetch_api(api_url):
+    try:
+        response = requests.get(api_url)
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"Error: {e}")
+        return None
+
+api_url = "https://mlbb-stats.rone.dev/api/academy/heroes/"
+data = fetch_api(api_url)
+
+print(json.dumps(data, indent=4) if data else "No data fetched.")
+```
+
+### Direct API Access
+
+Click this to Access the API directly [mlbb-stats.rone.dev/api/academy/heroes](https://mlbb-stats.rone.dev/api/academy/heroes/)
+
+## Result
+
+```json {12,45} showLineNumbers
+{
+    "code": 0,
+    "message": "OK",
+    "data": {
+        "records": [
+            {
+                "data": {
+                    "head": "https://akmweb.youngjoygame.com/web/gms/image/e7aa2ab69d15fc168b2d60b0e5ed0a1e.jpg",
+                    "head_big": "https://akmweb.youngjoygame.com/web/gms/image/3542718f699058d42801d88ec9b8fb8b.jpg",
+                    "hero": {
+                        "data": {
+                            "name": "Marcel",
+                            "roadsort": [
+                                {
+                                    "_id": "66854202aa8e7f6ec4703d8f",
+                                    "caption": "辅助",
+                                    "configId": 144237,
+                                    "createdAt": 1720009218480,
+                                    "createdUser": "nickjin",
+                                    "data": {
+                                        "_object": 2732073,
+                                        "road_sort_icon": "https://akmweb.youngjoygame.com/web/gms/image/a3dbb075b4d8186c29f02f7d47da236a.svg",
+                                        "road_sort_id": "3",
+                                        "road_sort_title": "Roam"
+                                    },
+                                    "id": 2732083,
+                                    "sort": 0,
+                                    "updatedAt": 1723022949109,
+                                    "updatedUser": "nickjin"
+                                },
+                                ""
+                            ]
+                        }
+                    },
+                    "hero_id": 132,
+                    "painting": "https://akmweb.youngjoygame.com/web/gms/image/24c43180662d27aa5b62106b596fa4f7.webp"
+                }
+            },
+            {
+                "data": {
+                    "head": "https://akmweb.youngjoygame.com/web/gms/image/79b29476fd42bb3d3e048dc6bcfc7687.jpg",
+                    "head_big": "https://akmweb.youngjoygame.com/web/gms/image/8db55c33fd2a5c84822a2a6c51e1fb18.jpg",
+                    "hero": {
+                        "data": {
+                            "name": "Eudora",
+                            "roadsort": [
+                                {
+                                    "_id": "66854225aa8e7f6ec4703d93",
+                                    "caption": "中路",
+                                    "configId": 144237,
+                                    "createdAt": 1720009253985,
+                                    "createdUser": "nickjin",
+                                    "data": {
+                                        "_object": 2732073,
+                                        "road_sort_icon": "https://akmweb.youngjoygame.com/web/gms/image/facab1eacb218d767b5acb80304bfafd.svg",
+                                        "road_sort_id": "2",
+                                        "road_sort_title": "Mid Lane"
+                                    },
+                                    "id": 2732084,
+                                    "sort": 0,
+                                    "updatedAt": 1723022943932,
+                                    "updatedUser": "nickjin"
+                                },
+                                ""
+                            ]
+                        }
+                    },
+                    "hero_id": 15
+                }
+            },
+            ...
+        ],
+        "total": 132
+    }
+}
+```

@@ -1,0 +1,83 @@
+---
+title: GET Academy Hero Guide Time Win Rate
+description: API endpoint to fetch time-based win rate statistics for a specific Mobile Legends hero guide by hero ID and lane ID.
+---
+
+## Endpoint
+
+```txt
+GET /api/academy/guide/{hero_id}/time-win-rate/{lane_id}/
+```
+
+## Path Parameters
+
+- **hero_id** (integer): Unique identifier of the hero.  
+  Example: `132` (Marcel)
+
+- **lane_id** (integer): Unique identifier of the lane.  
+  Example: `3` (Roam)
+
+## Example Requests
+
+```txt
+GET /api/academy/guide/132/time-win-rate/3/
+```
+
+## Example Usage
+
+### Python requests
+
+```python {13} showLineNumbers
+import requests
+import json
+
+def fetch_api(api_url):
+    try:
+        response = requests.get(api_url)
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"Error: {e}")
+        return None
+
+api_url = "http://127.0.0.1/api/academy/guide/132/time-win-rate/3/"
+data = fetch_api(api_url)
+
+print(json.dumps(data, indent=4) if data else "No data fetched.")
+```
+
+### Direct API Access
+
+Click this to Access the API directly [mlbb-stats.rone.dev/api/academy/guide/132/time-win-rate/3](https://mlbb-stats.rone.dev/api/academy/guide/132/time-win-rate/3/)
+
+## Result
+
+```json {11-12} showLineNumbers
+{
+    "code": 0,
+    "message": "OK",
+    "data": {
+        "records": [
+            {
+                "id": 4104657,
+                "data": {
+                    "big_rank": "101",
+                    "hero_name": "时光",
+                    "heroid": 132,
+                    "real_road": 3,
+                    "time_win_rate": [
+                        { "time_min": 10, "time_max": 12, "win_rate": 0.4278133948860667 },
+                        { "time_min": 12, "time_max": 14, "win_rate": 0.4629384901390236 },
+                        { "time_min": 14, "time_max": 16, "win_rate": 0.4755547684617711 },
+                        { "time_min": 16, "time_max": 18, "win_rate": 0.4842604440186049 },
+                        { "time_min": 18, "time_max": 20, "win_rate": 0.4883959073015553 },
+                        { "time_min": 20, "win_rate": 0.4983551110859249 }
+                    ],
+                    "total_win_rate": 0.4716393316572311
+                }
+            }
+        ],
+        "total": 1
+    }
+}
+```

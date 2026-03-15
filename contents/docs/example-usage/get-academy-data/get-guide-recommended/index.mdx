@@ -1,0 +1,100 @@
+---
+title: GET Academy Hero Guide Recommended
+description: API endpoint to fetch recommended builds, emblems, spells, and synergies for a specific Mobile Legends hero guide by hero ID.
+---
+
+## Endpoint
+
+```txt
+GET /api/academy/guide/{hero_id}/recommended/
+```
+
+## Path Parameters
+
+- **hero_id** (integer): Unique identifier of the hero.  
+  Example: `132` (Marcel)
+
+## Example Requests
+
+```txt
+GET /api/academy/guide/132/recommended/
+```
+
+## Example Usage
+
+### Python requests
+
+```python {13} showLineNumbers
+import requests
+import json
+
+def fetch_api(api_url):
+    try:
+        response = requests.get(api_url)
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"Error: {e}")
+        return None
+
+api_url = "http://127.0.0.1/api/academy/guide/132/recommended/"
+data = fetch_api(api_url)
+
+print(json.dumps(data, indent=4) if data else "No data fetched.")
+```
+
+### Direct API Access
+
+Click this to Access the API directly [mlbb-stats.rone.dev/api/academy/guide/132/recommended](mlbb-stats.rone.dev/api/academy/guide/132/recommended/)
+
+## Result
+
+```json {11} showLineNumbers
+{
+    "code": 0,
+    "message": "OK",
+    "data": {
+        "records": [
+            {
+                "id": 1085815454048448,
+                "data": {
+                    "title": "Marcel guide",
+                    "hero": {
+                        "hero_id": 132,
+                        "hero_lane": "3",
+                        "hero_tags": [3, 14]
+                    },
+                    "equips": [
+                        {
+                            "equip_title": "Reducing reload time",
+                            "equip_desc": "Skill Cooldown Reduction Build",
+                            "equip_ids": [3562, 3109, 3206, 3212, 3205, 3203]
+                        }
+                    ],
+                    "emblems": [
+                        {
+                            "emblem_title": "Reload Emblems",
+                            "emblem_desc": "These emblems are required to reduce Marcel's skill cooldowns.",
+                            "emblem_gifts": [811, 321, 134]
+                        }
+                    ],
+                    "spell": {
+                        "spell_id": 20100,
+                        "spell_desc": "Flash is a combat spell used to attack or escape..."
+                    },
+                    "cooperates": [
+                        { "cooperate_desc": "Granger synergy with Marcel's ultimate", "cooperate_hero_id": 79, "cooperate_rate": 100 },
+                        { "cooperate_desc": "Chang-E ultimate flies into Marcel's ultimate", "cooperate_hero_id": 61, "cooperate_rate": 100 }
+                    ],
+                    "counters": [
+                        { "counter_desc": "Lunox's light ultimate prevents freeze", "counter_hero_id": 68, "counter_rate": 40 }
+                    ],
+                    "snapshot": "https://akmweb.youngjoygame.com/web/academy/image/c3f611f63e97bf1d288919d682b6a0e9.jpeg"
+                }
+            },
+            ...
+        ],
+        "total": 27
+    }
+}
+```

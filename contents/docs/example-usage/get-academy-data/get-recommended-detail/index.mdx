@@ -1,0 +1,339 @@
+---
+title: GET Academy Recommended Detail
+description: API endpoint to fetch detailed information about a specific recommended Mobile Legends hero guide by ID.
+---
+
+## Endpoint
+
+```txt
+GET /api/academy/recommended/{id}/
+```
+
+## Path Parameters
+
+- **id** (string): Unique identifier of the recommended guide record.  
+  Example: `1084006255927552`
+
+## Example Requests
+
+```txt
+GET /api/academy/recommended/1084006255927552/
+```
+
+## Example Usage
+
+### Python requests
+
+```python {13} showLineNumbers
+import requests
+import json
+
+def fetch_api(api_url):
+    try:
+        response = requests.get(api_url)
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"Error: {e}")
+        return None
+
+api_url = "https://mlbb-stats.rone.dev/api/academy/recommended/1084006255927552/"
+data = fetch_api(api_url)
+
+print(json.dumps(data, indent=4) if data else "No data fetched.")
+```
+
+### Direct API Access
+
+Click this to Access the API directly [mlbb-stats.rone.dev/api/academy/recommended/1084006255927552](https://mlbb-stats.rone.dev/api/academy/recommended/1084006255927552/)
+
+## Result
+
+```json {142} showLineNumbers
+{
+    "code": 0,
+    "message": "OK",
+    "data": {
+        "records": [
+            {
+                "createdAt": 1773320182413,
+                "data": {
+                    "channels": [
+                        "UGC",
+                        "recommend"
+                    ],
+                    "data": {
+                        "cooperates": [
+                            {
+                                "cooperate_desc": "- Odette: Her ultimate skill requires her to stay stationary. After Marcel freezes the enemy, she can deal full damage and clear the field in team fights.",
+                                "cooperate_hero_id": 46,
+                                "cooperate_rate": 100
+                            },
+                            {
+                                "cooperate_desc": "- Gusion: His ultimate skill requires close-range combat. After Marcel freezes him, he can seamlessly combo and instantly kill the enemy's carry.",
+                                "cooperate_hero_id": 56,
+                                "cooperate_rate": 100
+                            },
+                            {
+                                "cooperate_desc": "- Xavier: His ultimate ability is a large-area burst attack. Once Marcel controls the enemy, they cannot move and will inevitably take full damage.",
+                                "cooperate_hero_id": 115,
+                                "cooperate_rate": 100
+                            }
+                        ],
+                        "counters": [
+                            {
+                                "counter_desc": "- Pharsa: Extremely long-range ultimate, safe for poking; Marcel's second skill will severely damage her if he charges in.",
+                                "counter_hero_id": 52,
+                                "counter_rate": 20
+                            }
+                        ],
+                        "data_version": 1,
+                        "dominants": [
+                            {
+                                "dominant_desc": "Early Game (Levels 1-4)\n\n- Stick with the marksman/mid laner, use skill 1 for poke and passive crowd control, use skill 2 for flexible kiting.\n\n- Don't initiate team fights; focus on farming and counter-attacking.\n\nMid Game (Levels 5-10)\n\n- Ultimate Core: Freeze the dragon/tower/team fight to control resources and initiate the game's tempo.\n\n- Roam and support, prioritizing protecting the carry; avoid split-pushing.\n\nTeam Fights (Core)\n\n- Positioning: Mid to backline; avoid being the first to take crowd control.\n\n- Ultimate Usage: Use when the enemy uses key skills/dives.\n\n- Freeze Priority: Enemy carry > Dive > Frontline",
+                                "dominant_title": "best play"
+                            }
+                        ],
+                        "emblems": [
+                            {
+                                "emblem_desc": "- High HP + dual defenses + cooldown reduction + movement speed + HP regeneration, a perfect fit\n\nTalents (Tank Runes)\n\n1. Vitality (Max HP)\n\n2. Resilience (Increased defense when low HP)\n\n3. Shockwave (AOE on basic attacks + crowd control)",
+                                "emblem_gifts": [
+                                    311,
+                                    121,
+                                    731
+                                ],
+                                "emblem_id": 20003,
+                                "emblem_title": "best"
+                            }
+                        ],
+                        "equips": [
+                            {
+                                "equip_desc": "Magic Shoes, Thunder Belt, Dominance Ice, Oracle, Radiant Armor, Immortality\n\n- Core Build: 40% Cooldown Reduction + Shield + Armor Resurrection + Resurrection; Infinite Loop for Ultimate/Passive/Skills 1/2\n\n- Suitable for: Enemy teams with mixed physical and magical damage, balanced team compositions",
+                                "equip_ids": [
+                                    2304,
+                                    2212,
+                                    3206,
+                                    3204,
+                                    3210,
+                                    3207
+                                ],
+                                "equip_title": "Universal All-Round Build (Top Choice in 90% of Games)"
+                            },
+                            {
+                                "equip_desc": "Tough Boots, Thunder Belt, Antique Cuirass, Oracle , Dominance Ice, Guardian Helmet\n\n- Core: High physical damage reduction + shield + continuous healing, providing strong protection for archers/mages\n\n- Suitable for: Hayabusa, Ling, Chou, Saber, and more",
+                                "equip_ids": [
+                                    2302,
+                                    2212,
+                                    3212,
+                                    3206,
+                                    3204,
+                                    3202
+                                ],
+                                "equip_title": "Strong crowd control and carry protection strategy (against teams with many assassins/dive units)"
+                            },
+                            {
+                                "equip_desc": "Magic Shoes, Thunder Belt, Dominance Ice, Oracle, Athena's Shield, Immortality\n\n- Core: High magic resistance + shield + damage reduction, able to tank mage ultimates\n\n- Compatible with: Xavier, Lunox, Harley, Eudora, etc.",
+                                "equip_ids": [
+                                    2304,
+                                    2212,
+                                    3206,
+                                    3204,
+                                    3205,
+                                    3207
+                                ],
+                                "equip_title": "Anti-magic burst damage build (against mages/high magic burst damage)"
+                            }
+                        ],
+                        "game_version": "2.1.18",
+                        "hero": {
+                            "hero_id": 132,
+                            "hero_lane": "3",
+                            "hero_overview": "Marcel is the most unique support in MLBB history, redefining team fights with his time-stopping ability. He's a carry protector, initiator, and counter-strategist, but he's extremely reliant on his ultimate and game sense, making him suitable for players who enjoy tactical macro play and team coordination.",
+                            "hero_strength": "1. Top-tier control chain: Passive + Skill 1 + Ultimate triple root/freeze, locking down enemies for 3-4 seconds in team fights.\n\n2. All-around carry protection: Shield, mobility, area root, ultimate freezes diving assassins, perfectly protecting the backline.\n\n3. Countering the ceiling: Freezing turrets/dragons/enemy ultimates, changing resource contention and team fight logic.\n\n4. Maximized survivability: Health converted to dual defenses + high healing + shield + mobility, extremely tanky among supports.\n\n5. Tactical versatility: Applicable in all scenarios: initiating team fights, counter-attacking, protecting carries, controlling dragons, destroying turrets, and countering ultimates.",
+                            "hero_tags": [
+                                3,
+                                15,
+                                11
+                            ],
+                            "hero_weakness": "1. Extremely reliant on ultimate: Control and deterrence are significantly reduced without the ultimate; long ultimate cooldown (approximately 60 seconds at max level), missing the ultimate = team fight collapse.\n\n2. Vulnerable to strong dives: Lacks tankiness, easily focused and killed by strong dives like Hayabusa, Ling, and Fanny.\n\n3. High skill latency: Skill 1 has a 2.5-second delay; the ultimate requires precise prediction, resulting in a high miss rate.\n\n4. Indiscriminate use of ultimate: Freezes allies; misplaced ultimate can harm teammates (e.g., freezing your own carry).\n\n5. Lacks damage output: Basic attacks do not benefit from attack speed, making a damage-dealing build impossible; pure support role."
+                        },
+                        "language": "en",
+                        "pages": [
+                            "hero",
+                            "spell",
+                            "emblem",
+                            "equip",
+                            "dominant",
+                            "cooperate"
+                        ],
+                        "recommend": "Thanks for the likes ♥",
+                        "snapshot": "https://akmweb.youngjoygame.com/web/academy/image/c29b02377e49cbc8c7179f2198f6f5e2.jpeg",
+                        "spell": {
+                            "spell_desc": "- First Choice: Flash\nSuitable for 90% of team compositions, compensates for ultimate delay and inaccurate prediction of skill 1; can be used to initiate team fights/protect carries/dodge crowd control, offering the highest margin for error.\n\n- Second Choice: Purify\nTake this when facing multiple strong crowd control champions (Khufra, Tigreal, Chou) to prevent your ultimate from being instantly interrupted.\n\n- Alternative: Heal\nDedicated to protecting carries; synergizes with the passive shield to provide double protection for the marksman/mage.",
+                            "spell_id": 20100
+                        },
+                        "title": "Marcel GUIDE💎"
+                    },
+                    "state": "release",
+                    "type": "ugc_hero"
+                },
+                "dynamic": {
+                    "hot": 5526.06,
+                    "views": 1149,
+                    "views_by_4h_0": 3,
+                    "views_by_4h_1": 51,
+                    "views_by_4h_2": 71,
+                    "views_by_4h_3": 31,
+                    "views_by_4h_4": 27,
+                    "views_by_4h_total_24h": 262,
+                    "votes": 30
+                },
+                "form": {
+                    "id": 2737553
+                },
+                "id": 1084006255927552,
+                "item_uin": [
+                    {
+                        "count": 1,
+                        "item": {
+                            "access": "all",
+                            "desc": "MLBB Academy Top Creators Reward",
+                            "icon": "https://akmweb.youngjoygame.com/web/gms/image/222cad2f3870af05c1e45b5a4f2eba03.png",
+                            "id": 2758031,
+                            "tags": [
+                                "badge",
+                                "2"
+                            ],
+                            "title": "Creative Star",
+                            "usage": {
+                                "mode": "manual"
+                            }
+                        },
+                        "uin": "mlbb:1204:157518598",
+                        "user": {
+                            "avatar": "https://akmpicture.youngjoygame.com/dist/face/1204/98/85/254_new_a649668e-4493-4f7d-bf59-3fa522030094.jpg",
+                            "historyRankLevel": 236,
+                            "level": 218,
+                            "module": "mlbb",
+                            "name": "ㅤゞ小露 ㅤ",
+                            "registerCountry": "br",
+                            "registerTime": 1516560933,
+                            "roleId": 157518598,
+                            "zoneId": 1204
+                        }
+                    },
+                    {
+                        "count": 1,
+                        "item": {
+                            "access": "all",
+                            "desc": "This badge recognizes outstanding content creators of the 2025 Kalea Strategy Event.",
+                            "icon": "https://akmweb.youngjoygame.com/web/gms/image/84dfdc9904a11add0dc37c8fa6434767.png",
+                            "id": 2866332,
+                            "tags": [
+                                "badge",
+                                "5"
+                            ],
+                            "title": "Kalea",
+                            "usage": {
+                                "mode": "manual"
+                            }
+                        },
+                        "uin": "mlbb:1204:157518598",
+                        "user": {
+                            "avatar": "https://akmpicture.youngjoygame.com/dist/face/1204/98/85/254_new_a649668e-4493-4f7d-bf59-3fa522030094.jpg",
+                            "historyRankLevel": 236,
+                            "level": 218,
+                            "module": "mlbb",
+                            "name": "ㅤゞ小露 ㅤ",
+                            "registerCountry": "br",
+                            "registerTime": 1516560933,
+                            "roleId": 157518598,
+                            "zoneId": 1204
+                        }
+                    },
+                    {
+                        "count": 1,
+                        "item": {
+                            "access": "all",
+                            "desc": "This badge honors outstanding content creators from the Zetian Guide Event in 2025.",
+                            "icon": "https://akmweb.youngjoygame.com/web/gms/image/42cf3fcabe9baa5f8b1b5fa3b73798d4.png",
+                            "id": 3118009,
+                            "tags": [
+                                "badge",
+                                "6"
+                            ],
+                            "title": "New Hero Zetian Exclusive Badge",
+                            "usage": {
+                                "mode": "manual"
+                            }
+                        },
+                        "uin": "mlbb:1204:157518598",
+                        "user": {
+                            "avatar": "https://akmpicture.youngjoygame.com/dist/face/1204/98/85/254_new_a649668e-4493-4f7d-bf59-3fa522030094.jpg",
+                            "historyRankLevel": 236,
+                            "level": 218,
+                            "module": "mlbb",
+                            "name": "ㅤゞ小露 ㅤ",
+                            "registerCountry": "br",
+                            "registerTime": 1516560933,
+                            "roleId": 157518598,
+                            "zoneId": 1204
+                        }
+                    },
+                    {
+                        "count": 1,
+                        "item": {
+                            "access": "all",
+                            "desc": "This badge honors outstanding content creators from the Sora Guide Event in 2025.",
+                            "icon": "https://akmweb.youngjoygame.com/web/gms/image/abe8cb7093fa8838bce45187b8117450.png",
+                            "id": 3266460,
+                            "tags": [
+                                "badge",
+                                "8"
+                            ],
+                            "title": "New Hero Sora Exclusive Badge",
+                            "usage": {
+                                "mode": "manual"
+                            }
+                        },
+                        "uin": "mlbb:1204:157518598",
+                        "user": {
+                            "avatar": "https://akmpicture.youngjoygame.com/dist/face/1204/98/85/254_new_a649668e-4493-4f7d-bf59-3fa522030094.jpg",
+                            "historyRankLevel": 236,
+                            "level": 218,
+                            "module": "mlbb",
+                            "name": "ㅤゞ小露 ㅤ",
+                            "registerCountry": "br",
+                            "registerTime": 1516560933,
+                            "roleId": 157518598,
+                            "zoneId": 1204
+                        }
+                    }
+                ],
+                "uin": "mlbb:1204:157518598",
+                "updatedAt": 1773340485593,
+                "user": {
+                    "avatar": "https://akmpicture.youngjoygame.com/dist/face/1204/98/85/254_new_a649668e-4493-4f7d-bf59-3fa522030094.jpg",
+                    "historyRankLevel": 236,
+                    "level": 218,
+                    "module": "mlbb",
+                    "name": "ㅤゞ小露 ㅤ",
+                    "roleId": 157518598,
+                    "zoneId": 1204
+                },
+                "vote_all": {
+                    "average": 1,
+                    "count": 30,
+                    "target": "1084006255927552",
+                    "total": 30,
+                    "user_count": 30,
+                    "vote": {
+                        "id": 2758890
+                    }
+                }
+            }
+        ],
+        "total": 1
+    }
+}
+```

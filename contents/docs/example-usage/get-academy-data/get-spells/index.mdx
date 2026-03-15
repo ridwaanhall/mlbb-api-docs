@@ -1,0 +1,72 @@
+---
+title: GET Academy Spells
+description: API endpoint to fetch all available Mobile Legends battle spells data.
+---
+
+## Endpoint
+
+```txt
+GET /api/academy/spells/
+```
+
+## Path Parameters
+
+None.
+
+## Example Requests
+
+```txt
+GET /api/academy/spells/
+```
+
+## Example Usage
+
+### Python requests
+
+```python {13} showLineNumbers
+import requests
+import json
+
+def fetch_api(api_url):
+    try:
+        response = requests.get(api_url)
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"Error: {e}")
+        return None
+
+api_url = "https://mlbb-stats.rone.dev/api/academy/spells/"
+data = fetch_api(api_url)
+
+print(json.dumps(data, indent=4) if data else "No data fetched.")
+```
+
+### Direct API Access
+
+Click this to Access the API directly [mlbb-stats.rone.dev/api/academy/spells](https://mlbb-stats.rone.dev/api/academy/spells/)
+
+## Result
+
+```json {9} showLineNumbers
+{
+    "code": 0,
+    "message": "OK",
+    "data": {
+        "records": [
+            {
+                "data": {
+                    "__data": {
+                        "skillname": "Arrival",
+                        "skilldesc": "After channeling for 3s, teleport to the target allied Turret, Base, Minion, or trap and gain 60% extra Movement Speed (decays over 3s) afterward. If the channeling is canceled or interrupted, 30s of the spell cooldown will be refunded.",
+                        "skillicon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_e4c101cdf5311dc1ce58bd8385c1c478.png"
+                    },
+                    "skillshortdesc": "Long-range Support"
+                }
+            },
+            ...
+        ],
+        "total": 12
+    }
+}
+```

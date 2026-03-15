@@ -1,0 +1,69 @@
+---
+title: GET Academy Equipment
+description: API endpoint to fetch all available Mobile Legends equipment data.
+---
+
+## Endpoint
+
+```txt
+GET /api/academy/equipment/
+```
+
+## Path Parameters
+
+None.
+
+## Example Requests
+
+```txt
+GET /api/academy/equipment/
+```
+
+## Example Usage
+
+### Python requests
+
+```python {13} showLineNumbers
+import requests
+import json
+
+def fetch_api(api_url):
+    try:
+        response = requests.get(api_url)
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"Error: {e}")
+        return None
+
+api_url = "https://mlbb-stats.rone.dev/api/academy/equipment/"
+data = fetch_api(api_url)
+
+print(json.dumps(data, indent=4) if data else "No data fetched.")
+```
+
+### Direct API Access
+
+Click this to Access the API directly [mlbb-stats.rone.dev/api/academy/equipment](https://mlbb-stats.rone.dev/api/academy/equipment)
+
+## Result
+
+```json {10} showLineNumbers
+{
+    "code": 0,
+    "message": "OK",
+    "data": {
+        "records": [
+            {
+                "data": {
+                    "equipicon": "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/homepage/100_e7f1b44153bd079824ececabb14cf901.png",
+                    "equipid": 10002,
+                    "equipname": "Bud of Hope"
+                }
+            },
+            ...
+        ],
+        "total": 184
+    }
+}
+```
